@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Post } from '@/lib/posts'
 import Link from 'next/link'
 import CopyCodeButton from './CopyCodeButton'
+import PostNavigation from './PostNavigation'
 
 const ArticleContainer = styled.article`
   max-width: 800px;
@@ -184,30 +185,33 @@ interface PostContentProps {
 
 export default function PostContent({ post }: PostContentProps) {
   return (
-    <ArticleContainer>
-      <BackLink href="/#posts">← Back to Posts</BackLink>
-      
-      <PostHeader>
-        <PostTitle>{post.title}</PostTitle>
-        <PostExcerpt>{post.excerpt}</PostExcerpt>
-        <PostMeta>
-          <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}</span>
-          <span>•</span>
-          <span>{post.readTime} min read</span>
-        </PostMeta>
-        <PostTags>
-          {post.tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </PostTags>
-      </PostHeader>
-      
-      <Content dangerouslySetInnerHTML={{ __html: post.content }} />
-      <CopyCodeButton />
-    </ArticleContainer>
+    <>
+      <ArticleContainer>
+        <BackLink href="/#posts">← Back to Posts</BackLink>
+        
+        <PostHeader>
+          <PostTitle>{post.title}</PostTitle>
+          <PostExcerpt>{post.excerpt}</PostExcerpt>
+          <PostMeta>
+            <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}</span>
+            <span>•</span>
+            <span>{post.readTime} min read</span>
+          </PostMeta>
+          <PostTags>
+            {post.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </PostTags>
+        </PostHeader>
+        
+        <Content dangerouslySetInnerHTML={{ __html: post.content }} />
+        <CopyCodeButton />
+      </ArticleContainer>
+      <PostNavigation />
+    </>
   )
 }

@@ -57,7 +57,7 @@ const NavigationList = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 `;
 
 const NavigationItem = styled.li.withConfig({
@@ -73,8 +73,8 @@ const NavigationItem = styled.li.withConfig({
 const NavigationDot = styled.button.withConfig({
   shouldForwardProp: (prop) => prop !== "isActive",
 })<{ isActive: boolean }>`
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 2px solid
     ${(props) => (props.isActive ? "#667eea" : "rgba(71, 85, 105, 0.3)")};
@@ -112,11 +112,11 @@ const NavigationLine = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isActive", "isLast"].includes(prop),
 })<{ isActive: boolean; isLast: boolean }>`
   position: absolute;
-  top: 18px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: ${(props) => (props.isLast ? "0" : "2rem")};
+  height: ${(props) => (props.isLast ? "0" : "1.5rem")};
   background: ${(props) =>
     props.isActive
       ? "linear-gradient(180deg, rgba(102, 126, 234, 0.8) 0%, rgba(102, 126, 234, 0.3) 100%)"
@@ -147,6 +147,9 @@ const NavigationLabel = styled.button.withConfig({
   pointer-events: ${(props) => (props.alwaysShow ? "auto" : "none")};
   cursor: ${(props) => (props.alwaysShow ? "pointer" : "default")};
   backdrop-filter: ${(props) => (props.alwaysShow ? "blur(10px)" : "none")};
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     color: #667eea;
@@ -165,88 +168,114 @@ const NavigationLabel = styled.button.withConfig({
   }
 `;
 
-interface Section {
+interface Heading {
   id: string;
-  label: string;
+  text: string;
+  level: number;
   element?: HTMLElement;
 }
 
-const sections: Section[] = [
-  { id: "hero", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "posts", label: "Posts" },
-  { id: "connect", label: "Connect" },
-];
-
-export default function PageNavigation() {
-  const [activeSection, setActiveSection] = useState<string>("hero");
+export default function PostNavigation() {
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [headings, setHeadings] = useState<Heading[]>([]);
   const [showLabels, setShowLabels] = useState<boolean>(false);
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-10% 0px -80% 0px",
-      threshold: [0, 0.1, 0.5, 1],
-    };
+    // Extract headings from the post content
+    const extractHeadings = () => {
+      const headingElements = document.querySelectorAll(
+        "h1, h2, h3, h4, h5, h6"
+      );
+      const extractedHeadings: Heading[] = [];
 
-    let timeoutId: NodeJS.Timeout;
+      headingElements.forEach((element, index) => {
+        const headingElement = element as HTMLElement;
+        let id = headingElement.id;
 
-    const observer = new IntersectionObserver((entries) => {
-      // Clear any pending timeout
-      if (timeoutId) clearTimeout(timeoutId);
-
-      // Find the most visible section
-      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-
-      if (visibleEntries.length > 0) {
-        // Sort by intersection ratio and pick the most visible one
-        const mostVisible = visibleEntries.sort(
-          (a, b) => b.intersectionRatio - a.intersectionRatio
-        )[0];
-
-        // Add small delay to prevent rapid switching
-        timeoutId = setTimeout(() => {
-          setActiveSection(mostVisible.target.id);
-        }, 100);
-      }
-    }, observerOptions);
-
-    // Wait for DOM to be ready
-    const setupObserver = () => {
-      sections.forEach((section) => {
-        let element = document.getElementById(section.id);
-
-        // Special handling for hero section
-        if (section.id === "hero" && !element) {
-          element = document.querySelector(
-            "main > section:first-child"
-          ) as HTMLElement;
-          if (element) {
-            element.id = "hero";
-          }
+        // Create ID if it doesn't exist
+        if (!id) {
+          const text = headingElement.textContent || "";
+          id = `heading-${index}-${text
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "")}`;
+          headingElement.id = id;
         }
 
-        if (element) {
-          observer.observe(element);
+        const level = parseInt(headingElement.tagName.charAt(1));
+        const text = headingElement.textContent || "";
+
+        // Only include h2 and h3 for cleaner TOC
+        if (level >= 2 && level <= 3 && text.trim()) {
+          extractedHeadings.push({
+            id,
+            text: text.trim(),
+            level,
+            element: headingElement,
+          });
         }
       });
+
+      return extractedHeadings;
     };
 
-    // Setup with small delay to ensure DOM is ready
-    const setupTimeoutId = setTimeout(setupObserver, 100);
+    const setupObserver = () => {
+      const extractedHeadings = extractHeadings();
+      setHeadings(extractedHeadings);
 
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      if (setupTimeoutId) clearTimeout(setupTimeoutId);
-      observer.disconnect();
+      if (extractedHeadings.length === 0) return;
+
+      const observerOptions = {
+        root: null,
+        rootMargin: "-10% 0px -80% 0px",
+        threshold: [0, 0.1, 0.5, 1],
+      };
+
+      let timeoutId: NodeJS.Timeout;
+
+      const observer = new IntersectionObserver((entries) => {
+        if (timeoutId) clearTimeout(timeoutId);
+
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
+        if (visibleEntries.length > 0) {
+          const mostVisible = visibleEntries.sort(
+            (a, b) => b.intersectionRatio - a.intersectionRatio
+          )[0];
+
+          timeoutId = setTimeout(() => {
+            setActiveSection(mostVisible.target.id);
+          }, 100);
+        }
+      }, observerOptions);
+
+      extractedHeadings.forEach((heading) => {
+        if (heading.element) {
+          observer.observe(heading.element);
+        }
+      });
+
+      // Set initial active section
+      if (extractedHeadings.length > 0) {
+        setActiveSection(extractedHeadings[0].id);
+      }
+
+      return () => {
+        if (timeoutId) clearTimeout(timeoutId);
+        observer.disconnect();
+      };
     };
+
+    // Wait for content to be rendered
+    const timeoutId = setTimeout(setupObserver, 500);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const scrollToHeading = (headingId: string) => {
+    const element = document.getElementById(headingId);
     if (element) {
-      // Manually set active section immediately for better UX
-      setActiveSection(sectionId);
+      setActiveSection(headingId);
 
       element.scrollIntoView({
         behavior: "smooth",
@@ -254,6 +283,11 @@ export default function PageNavigation() {
       });
     }
   };
+
+  // Don't render if no headings found
+  if (headings.length === 0) {
+    return null;
+  }
 
   return (
     <NavigationContainer>
@@ -269,26 +303,26 @@ export default function PageNavigation() {
       </ToggleButton>
 
       <NavigationList>
-        {sections.map((section, index) => (
+        {headings.map((heading, index) => (
           <NavigationItem
-            key={section.id}
-            isActive={activeSection === section.id}
+            key={heading.id}
+            isActive={activeSection === heading.id}
           >
             <NavigationDot
-              isActive={activeSection === section.id}
-              onClick={() => scrollToSection(section.id)}
-              aria-label={`Navigate to ${section.label}`}
+              isActive={activeSection === heading.id}
+              onClick={() => scrollToHeading(heading.id)}
+              aria-label={`Navigate to ${heading.text}`}
             />
             <NavigationLine
-              isActive={activeSection === section.id}
-              isLast={index === sections.length - 1}
+              isActive={activeSection === heading.id}
+              isLast={index === headings.length - 1}
             />
             <NavigationLabel
-              isActive={activeSection === section.id}
+              isActive={activeSection === heading.id}
               alwaysShow={showLabels}
-              onClick={() => scrollToSection(section.id)}
+              onClick={() => scrollToHeading(heading.id)}
             >
-              {section.label}
+              {heading.text}
             </NavigationLabel>
           </NavigationItem>
         ))}
