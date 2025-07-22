@@ -1,34 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import styled from 'styled-components'
-
-const CopyButton = styled.button<{ copied?: boolean }>`
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: ${props => props.copied ? '#10b981' : 'rgba(255, 255, 255, 0.1)'};
-  color: white;
-  border: 1px solid ${props => props.copied ? '#10b981' : 'rgba(255, 255, 255, 0.2)'};
-  border-radius: 4px;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(4px);
-  font-family: var(--font-fira-code), monospace;
-  z-index: 10;
-  
-  &:hover {
-    background: ${props => props.copied ? '#10b981' : 'rgba(255, 255, 255, 0.2)'};
-    border-color: ${props => props.copied ? '#10b981' : 'rgba(255, 255, 255, 0.4)'};
-  }
-  
-  &:active {
-    transform: translateY(1px);
-  }
-`
 
 export default function CopyCodeButton() {
   useEffect(() => {
@@ -75,7 +47,7 @@ export default function CopyCodeButton() {
         
         try {
           await navigator.clipboard.writeText(textContent)
-        } catch (err) {
+        } catch {
           // Fallback
           const textArea = document.createElement('textarea')
           textArea.value = textContent

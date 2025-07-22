@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Fira_Code } from "next/font/google";
 import "./globals.css";
 
@@ -52,11 +52,12 @@ export const metadata: Metadata = {
     description:
       "Octoio's portfolio - Game development, creative projects, and technical exploration",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

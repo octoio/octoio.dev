@@ -159,7 +159,7 @@ export default function Posts({ posts }: PostsProps) {
         <ComingSoon>
           <ComingSoonText>More posts coming soon!</ComingSoonText>
           <ComingSoonSubtext>
-            I'm working on sharing more insights about game development,
+            I&apos;m working on sharing more insights about game development,
             technical challenges, and creative processes.
           </ComingSoonSubtext>
         </ComingSoon>

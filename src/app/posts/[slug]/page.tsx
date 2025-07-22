@@ -3,11 +3,12 @@ import { notFound } from 'next/navigation'
 import PostContent from '@/components/PostContent'
 
 interface PostPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPost(params.slug)
+  const { slug } = await params
+  const post = await getPost(slug)
 
   if (!post) {
     notFound()
@@ -22,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PostPageProps) {
-  const post = await getPost(params.slug)
+  const { slug } = await params
+  const post = await getPost(slug)
 
   if (!post) {
     return {

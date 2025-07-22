@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import styled from 'styled-components'
 import { socialLinks } from '@/data/social'
 import { SocialLink } from '@/types'
@@ -158,9 +159,11 @@ function SocialCardComponent({ socialLink }: SocialCardComponentProps) {
       rel={socialLink.platform !== 'email' ? 'noopener noreferrer' : undefined}
     >
       <SocialIcon platform={socialLink.platform}>
-        <img 
+        <Image 
           src={getPlatformIconUrl(socialLink.platform)} 
           alt={`${socialLink.platform} logo`}
+          width={24}
+          height={24}
         />
       </SocialIcon>
       <SocialInfo>
@@ -177,7 +180,7 @@ export default function SocialLinks() {
   return (
     <SocialSection id="connect">
       <Container>
-        <SectionTitle>Let's Connect</SectionTitle>
+        <SectionTitle>Let&apos;s Connect</SectionTitle>
         <SectionSubtitle>
           Follow my journey, join the community, or reach out directly. 
           I love connecting with fellow developers and creators!
@@ -195,7 +198,7 @@ export default function SocialLinks() {
           </ContactText>
           <ContactSubtext>
             Feel free to reach out via email or any of the platforms above. 
-            I'm always excited to discuss new opportunities and creative projects!
+            I&apos;m always excited to discuss new opportunities and creative projects!
           </ContactSubtext>
         </ContactNote>
       </Container>
