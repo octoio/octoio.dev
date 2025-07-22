@@ -1,0 +1,26 @@
+export interface Project {
+  id: string
+  title: string
+  description: string
+  technologies: string[]
+  githubUrl?: string
+  liveUrl?: string
+  imageUrl?: string
+  featured: boolean
+}
+
+export interface Post {
+  id: string
+  title: string
+  excerpt: string
+  publishedAt: string
+  readTime: number
+  slug: string
+  tags: string[]
+}
+
+export interface SocialLink {
+  platform: 'discord' | 'youtube' | 'reddit' | 'instagram' | 'tiktok' | 'email'
+  url: string
+  username?: string
+}
