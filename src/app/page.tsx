@@ -1,9 +1,11 @@
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
 import Posts from '@/components/Posts'
+import LatestVideo from '@/components/LatestVideo'
 import SocialLinks from '@/components/SocialLinks'
 import Footer from '@/components/Footer'
 import PageNavigation from '@/components/PageNavigation'
+import SearchProvider from '@/components/SearchProvider'
 import { getPostSummaries } from '@/lib/posts'
 
 export default async function Home() {
@@ -13,12 +15,14 @@ export default async function Home() {
     <>
       <main>
         <Hero />
-        <Projects />
         <Posts posts={posts} />
+        <LatestVideo />
+        <Projects />
         <SocialLinks />
         <Footer />
       </main>
       <PageNavigation />
+      <SearchProvider />
     </>
   )
 }

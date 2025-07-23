@@ -1,68 +1,27 @@
-"use client";
-
-import styled from "styled-components";
-
-const FooterContainer = styled.footer`
-  background: #0f172a;
-  color: white;
-  padding: 2rem;
-  text-align: center;
-`;
-
-const FooterContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const FooterText = styled.p`
-  opacity: 0.8;
-  margin-bottom: 1rem;
-`;
-
-const FooterLinks = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 1rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 1rem;
-  }
-`;
-
-const FooterLink = styled.a`
-  color: #94a3b8;
-  text-decoration: none;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: #e0e7ff;
-  }
-`;
-
-const Copyright = styled.p`
-  font-size: 0.875rem;
-  opacity: 0.6;
-  margin-top: 1rem;
-`;
 
 export default function Footer() {
   return (
-    <FooterContainer>
-      <FooterContent>
-        <FooterText>Built with Next.js</FooterText>
-        <FooterLinks>
-          <FooterLink href="#projects">Projects</FooterLink>
-          <FooterLink href="#posts">Posts</FooterLink>
-          <FooterLink href="#connect">Connect</FooterLink>
-          <FooterLink href="mailto:octoiodev@gmail.com">Contact</FooterLink>
-        </FooterLinks>
-        <Copyright>
-          © {new Date().getFullYear()} Octoio. Made with ❤️ for the dev
-          community.
-        </Copyright>
-      </FooterContent>
-    </FooterContainer>
+    <footer className="bg-slate-900 text-white py-8 text-center">
+      <div className="max-w-6xl mx-auto px-4">
+        <p className="opacity-80 mb-4">Built with Next.js</p>
+        <div className="flex justify-center gap-8 mb-4 flex-col md:flex-row md:gap-8">
+          <a href="#projects" className="text-slate-400 hover:text-indigo-200 transition-colors duration-200">
+            Projects
+          </a>
+          <a href="#posts" className="text-slate-400 hover:text-indigo-200 transition-colors duration-200">
+            Posts
+          </a>
+          <a href="#connect" className="text-slate-400 hover:text-indigo-200 transition-colors duration-200">
+            Connect
+          </a>
+          <a href="mailto:octoiodev@gmail.com" className="text-slate-400 hover:text-indigo-200 transition-colors duration-200">
+            Contact
+          </a>
+        </div>
+        <p className="text-sm opacity-60 mt-4">
+          © {new Date().getFullYear()} Octoio. Made with ❤️ for the dev community.
+        </p>
+      </div>
+    </footer>
   );
 }

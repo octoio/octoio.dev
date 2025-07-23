@@ -20,7 +20,10 @@ export interface Post {
 }
 
 export interface SocialLink {
+  name: string
   platform: 'discord' | 'youtube' | 'reddit' | 'instagram' | 'tiktok' | 'email'
   url: string
   username?: string
+  description: string
+  icon: string
 }

@@ -53,27 +53,46 @@ function ProjectCardComponent({ project }: ProjectCardComponentProps) {
   )
 }
 
-export default function Projects() {
+export default function AllProjects() {
   const featuredProjects = projects.filter(p => p.featured)
+  const otherProjects = projects.filter(p => !p.featured)
 
   return (
-    <section id="projects" className="py-20 px-8 bg-slate-50">
+    <section className="py-20 px-8 bg-slate-50 min-h-screen">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-slate-800">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {featuredProjects.map((project) => (
-            <ProjectCardComponent key={project.id} project={project} />
-          ))}
-        </div>
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 text-indigo-500 no-underline mb-12 font-medium transition-colors duration-200 hover:text-indigo-600"
+        >
+          ← Back to Home
+        </Link>
         
-        <div className="text-center mt-8">
-          <Link 
-            href="/projects" 
-            className="text-indigo-500 no-underline font-medium text-lg transition-colors duration-200 hover:text-indigo-600"
-          >
-            View All Projects →
-          </Link>
-        </div>
+        <h1 className="text-5xl md:text-4xl font-bold text-center mb-4 text-slate-800">All Projects</h1>
+        <p className="text-xl text-slate-600 text-center mb-16 max-w-2xl mx-auto">
+          A comprehensive collection of my work in game development, web applications, and experimental projects.
+        </p>
+        
+        {featuredProjects.length > 0 && (
+          <>
+            <h2 className="text-3xl font-semibold my-12 text-slate-800">Featured Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {featuredProjects.map((project) => (
+                <ProjectCardComponent key={project.id} project={project} />
+              ))}
+            </div>
+          </>
+        )}
+        
+        {otherProjects.length > 0 && (
+          <>
+            <h2 className="text-3xl font-semibold my-12 text-slate-800">Other Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {otherProjects.map((project) => (
+                <ProjectCardComponent key={project.id} project={project} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   )

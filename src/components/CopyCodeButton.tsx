@@ -1,13 +1,28 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function CopyCodeButton() {
+  const [isClient, setIsClient] = useState(false)
+
   useEffect(() => {
-    // Add copy buttons to all pre elements
-    const preElements = document.querySelectorAll('pre')
-    
-    preElements.forEach((pre) => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
+    const addCopyButtons = () => {
+      // Add copy buttons to all pre elements
+      const preElements = document.querySelectorAll('pre')
+      
+      if (preElements.length === 0) {
+        // Retry after a short delay if no pre elements found
+        setTimeout(addCopyButtons, 100)
+        return
+      }
+      
+      preElements.forEach((pre) => {
       // Skip if already has a copy button
       if (pre.querySelector('.copy-button')) return
       
@@ -87,7 +102,11 @@ export default function CopyCodeButton() {
       
       pre.appendChild(button)
     })
-  }, [])
+  }
+
+    // Start adding buttons after a small delay to ensure DOM is ready
+    setTimeout(addCopyButtons, 300)
+  }, [isClient])
 
   return null
 }

@@ -1,172 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import styled from "styled-components";
-
-const NavigationContainer = styled.nav`
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-
-  @media (max-width: 1024px) {
-    display: none;
-  }
-`;
-
-const ToggleButton = styled.button.withConfig({
-  shouldForwardProp: (prop) => prop !== "isActive",
-})<{ isActive: boolean }>`
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  border: 1px solid
-    ${(props) => (props.isActive ? "#667eea" : "rgba(71, 85, 105, 0.2)")};
-  background: ${(props) =>
-    props.isActive ? "rgba(102, 126, 234, 0.2)" : "rgba(248, 250, 252, 0.6)"};
-  color: ${(props) => (props.isActive ? "#667eea" : "#64748b")};
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.625rem;
-  font-weight: 600;
-
-  &:hover {
-    border-color: #667eea;
-    background: rgba(102, 126, 234, 0.1);
-    color: #667eea;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: #667eea;
-  }
-`;
-
-const NavigationList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-`;
-
-const NavigationItem = styled.li.withConfig({
-  shouldForwardProp: (prop) => prop !== "isActive",
-})<{ isActive: boolean }>`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  transition: all 0.3s ease;
-`;
-
-const NavigationDot = styled.button.withConfig({
-  shouldForwardProp: (prop) => prop !== "isActive",
-})<{ isActive: boolean }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid
-    ${(props) => (props.isActive ? "#667eea" : "rgba(71, 85, 105, 0.3)")};
-  background: ${(props) =>
-    props.isActive
-      ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-      : "rgba(248, 250, 252, 0.8)"};
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  backdrop-filter: blur(15px);
-  box-shadow: ${(props) =>
-    props.isActive
-      ? "0 4px 15px rgba(102, 126, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
-      : "0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)"};
-
-  &:hover {
-    border-color: #667eea;
-    background: ${(props) =>
-      props.isActive
-        ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-        : "rgba(102, 126, 234, 0.15)"};
-    transform: scale(1.15);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-
-  &:focus {
-    outline: none;
-    border-color: #667eea;
-  }
-`;
-
-const NavigationLine = styled.div.withConfig({
-  shouldForwardProp: (prop) => !["isActive", "isLast"].includes(prop),
-})<{ isActive: boolean; isLast: boolean }>`
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: ${(props) => (props.isLast ? "0" : "1.5rem")};
-  background: ${(props) =>
-    props.isActive
-      ? "linear-gradient(180deg, rgba(102, 126, 234, 0.8) 0%, rgba(102, 126, 234, 0.3) 100%)"
-      : "linear-gradient(180deg, rgba(71, 85, 105, 0.3) 0%, rgba(71, 85, 105, 0.1) 100%)"};
-  transition: all 0.3s ease;
-  border-radius: 1px;
-  backdrop-filter: blur(5px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-`;
-
-const NavigationLabel = styled.button.withConfig({
-  shouldForwardProp: (prop) => !["isActive", "alwaysShow"].includes(prop),
-})<{ isActive: boolean; alwaysShow: boolean }>`
-  position: absolute;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  color: ${(props) => (props.isActive ? "#667eea" : "#64748b")};
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: ${(props) => (props.alwaysShow ? "1" : "0")};
-  transform: ${(props) =>
-    props.alwaysShow ? "translateX(0)" : "translateX(10px)"};
-  transition: all 0.3s ease;
-  pointer-events: ${(props) => (props.alwaysShow ? "auto" : "none")};
-  cursor: ${(props) => (props.alwaysShow ? "pointer" : "default")};
-  backdrop-filter: ${(props) => (props.alwaysShow ? "blur(10px)" : "none")};
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  &:hover {
-    color: #667eea;
-    background: rgba(102, 126, 234, 0.1);
-  }
-
-  &:focus {
-    outline: none;
-    color: #667eea;
-  }
-
-  ${NavigationItem}:hover & {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-  }
-`;
 
 interface Heading {
   id: string;
@@ -181,11 +15,8 @@ export default function PostNavigation() {
   const [showLabels, setShowLabels] = useState<boolean>(false);
 
   useEffect(() => {
-    // Extract headings from the post content
     const extractHeadings = () => {
-      const headingElements = document.querySelectorAll(
-        "h1, h2, h3, h4, h5, h6"
-      );
+      const headingElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
       const extractedHeadings: Heading[] = [];
 
       headingElements.forEach((element, index) => {
@@ -219,63 +50,80 @@ export default function PostNavigation() {
       return extractedHeadings;
     };
 
-    const setupObserver = () => {
+    const updateActiveSection = () => {
       const extractedHeadings = extractHeadings();
       setHeadings(extractedHeadings);
 
       if (extractedHeadings.length === 0) return;
 
-      const observerOptions = {
-        root: null,
-        rootMargin: "-10% 0px -80% 0px",
-        threshold: [0, 0.1, 0.5, 1],
-      };
+      // Find the heading closest to the top of the viewport
+      let activeHeading = extractedHeadings[0];
+      const viewportTop = window.scrollY + 100; // Offset for header
 
-      let timeoutId: NodeJS.Timeout;
-
-      const observer = new IntersectionObserver((entries) => {
-        if (timeoutId) clearTimeout(timeoutId);
-
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-
-        if (visibleEntries.length > 0) {
-          const mostVisible = visibleEntries.sort(
-            (a, b) => b.intersectionRatio - a.intersectionRatio
-          )[0];
-
-          timeoutId = setTimeout(() => {
-            setActiveSection(mostVisible.target.id);
-          }, 100);
+      for (const heading of extractedHeadings) {
+        if (!heading.element) continue;
+        
+        const headingTop = heading.element.offsetTop;
+        
+        if (headingTop <= viewportTop) {
+          activeHeading = heading;
+        } else {
+          break;
         }
-      }, observerOptions);
-
-      extractedHeadings.forEach((heading) => {
-        if (heading.element) {
-          observer.observe(heading.element);
-        }
-      });
-
-      // Set initial active section
-      if (extractedHeadings.length > 0) {
-        setActiveSection(extractedHeadings[0].id);
       }
 
-      return () => {
-        if (timeoutId) clearTimeout(timeoutId);
-        observer.disconnect();
-      };
+      setActiveSection(activeHeading.id);
     };
 
-    // Wait for content to be rendered
-    const timeoutId = setTimeout(setupObserver, 500);
+    // Initial setup
+    const setupTimeout = setTimeout(() => {
+      updateActiveSection();
+    }, 500);
 
-    return () => clearTimeout(timeoutId);
+    // Update on scroll
+    const handleScroll = () => {
+      updateActiveSection();
+    };
+
+    // Handle hash navigation
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            setActiveSection(hash);
+          }
+        }, 100);
+      }
+    };
+
+    // Handle initial hash
+    if (window.location.hash) {
+      handleHashChange();
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      clearTimeout(setupTimeout);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const scrollToHeading = (headingId: string) => {
     const element = document.getElementById(headingId);
     if (element) {
       setActiveSection(headingId);
+      
+      // Update URL hash without triggering a page reload
+      window.history.pushState(null, '', `#${headingId}`);
 
       element.scrollIntoView({
         behavior: "smooth",
@@ -290,43 +138,61 @@ export default function PostNavigation() {
   }
 
   return (
-    <NavigationContainer>
-      <ToggleButton
-        isActive={showLabels}
+    <nav className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 flex flex-col items-center gap-4 hidden lg:flex">
+      <button
         onClick={() => setShowLabels(!showLabels)}
         title={showLabels ? "Hide labels" : "Show labels"}
-        aria-label={
-          showLabels ? "Hide navigation labels" : "Show navigation labels"
-        }
+        aria-label={showLabels ? "Hide navigation labels" : "Show navigation labels"}
+        className={`w-6 h-6 border-none bg-none cursor-pointer transition-all duration-200 flex items-center justify-center text-sm font-normal hover:scale-110 focus:outline-none ${
+          showLabels ? "text-indigo-500" : "text-slate-600"
+        } hover:text-indigo-500`}
       >
-        {showLabels ? "AB" : "A"}
-      </ToggleButton>
+        {showLabels ? "▶" : "◀"}
+      </button>
 
-      <NavigationList>
+      <ul className="list-none m-0 p-0 flex flex-col gap-6">
         {headings.map((heading, index) => (
-          <NavigationItem
+          <li
             key={heading.id}
-            isActive={activeSection === heading.id}
+            className="relative flex items-center justify-end transition-all duration-300 group"
           >
-            <NavigationDot
-              isActive={activeSection === heading.id}
+            <button
               onClick={() => scrollToHeading(heading.id)}
               aria-label={`Navigate to ${heading.text}`}
+              className={`w-3 h-3 rounded-full border-2 cursor-pointer transition-all duration-300 relative backdrop-blur-md focus:outline-none hover:scale-115 hover:border-indigo-500 ${
+                activeSection === heading.id
+                  ? "border-indigo-500 bg-gradient-to-br from-indigo-500 to-purple-700 shadow-[0_4px_15px_rgba(102,126,234,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]"
+                  : "border-slate-400/30 bg-slate-50/80 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] hover:bg-indigo-500/15"
+              }`}
             />
-            <NavigationLine
-              isActive={activeSection === heading.id}
-              isLast={index === headings.length - 1}
-            />
-            <NavigationLabel
-              isActive={activeSection === heading.id}
-              alwaysShow={showLabels}
+            
+            {/* Connection line */}
+            {index < headings.length - 1 && (
+              <div
+                className={`absolute top-4 left-1/2 transform -translate-x-1/2 w-0.5 h-6 rounded-sm backdrop-blur-sm transition-all duration-300 ${
+                  activeSection === heading.id
+                    ? "bg-gradient-to-b from-indigo-500/80 to-indigo-500/30"
+                    : "bg-gradient-to-b from-slate-500/30 to-slate-500/10"
+                }`}
+              />
+            )}
+            
+            {/* Label */}
+            <button
               onClick={() => scrollToHeading(heading.id)}
+              className={`absolute right-6 bg-none border-none py-1 px-2 rounded text-xs font-medium whitespace-nowrap transition-all duration-300 focus:outline-none hover:text-indigo-500 hover:bg-indigo-500/10 max-w-[200px] overflow-hidden text-ellipsis ${
+                activeSection === heading.id ? "text-indigo-500" : "text-slate-600"
+              } ${
+                showLabels
+                  ? "opacity-100 translate-x-0 pointer-events-auto backdrop-blur-md"
+                  : "opacity-0 translate-x-2.5 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto"
+              }`}
             >
               {heading.text}
-            </NavigationLabel>
-          </NavigationItem>
+            </button>
+          </li>
         ))}
-      </NavigationList>
-    </NavigationContainer>
+      </ul>
+    </nav>
   );
 }
