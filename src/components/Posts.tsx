@@ -8,21 +8,32 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
+  const featuredPosts = posts.filter(p => p.featured)
+  const displayPosts = featuredPosts.length > 0 ? featuredPosts : posts.slice(0, 2)
+  
+  
   return (
     <section id="posts" className="py-20 px-8 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-8 text-slate-800">Latest Post</h2>
+        <h2 className="text-4xl font-bold text-center mb-8 text-slate-800">Featured Posts</h2>
         <p className="text-lg text-slate-600 text-center mb-12">
-          Recent thoughts, tutorials, and insights from my development journey.
+          Highlighted thoughts, tutorials, and insights from my development journey.
         </p>
         
-        {posts.length > 0 ? (
+        {displayPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.slice(0, 1).map((post) => (
+            {displayPosts.map((post) => (
               <article 
                 key={post.slug} 
-                className="bg-slate-50 rounded-xl p-8 border border-slate-200 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+                className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                  post.featured ? 'border-2 border-indigo-500' : 'border border-slate-200'
+                }`}
               >
+                {post.featured && (
+                  <div className="bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-4 inline-block">
+                    Featured
+                  </div>
+                )}
                 <h3 className="text-2xl font-semibold mb-4 text-slate-800 leading-tight">{post.title}</h3>
                 <div className="flex items-center gap-4 mb-4 text-sm text-slate-600">
                   <span>

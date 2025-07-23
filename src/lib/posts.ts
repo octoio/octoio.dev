@@ -9,6 +9,7 @@ export interface PostMetadata {
   publishedAt: string;
   readTime: number;
   tags: string[];
+  featured?: boolean;
 }
 
 export interface Post extends PostMetadata {
@@ -53,6 +54,7 @@ export async function getPostSummaries(): Promise<PostSummary[]> {
         publishedAt: metadata.publishedAt,
         readTime: metadata.readTime,
         tags: metadata.tags || [],
+        featured: metadata.featured || false,
       };
     } catch (error) {
       console.error(`Error loading metadata for post ${postDir}:`, error);
@@ -86,6 +88,7 @@ export async function getPost(slug: string): Promise<Post | null> {
       publishedAt: metadata.publishedAt,
       readTime: metadata.readTime,
       tags: metadata.tags || [],
+      featured: metadata.featured || false,
       content: '', // MDX content is rendered by the page component
     };
   } catch (error) {
