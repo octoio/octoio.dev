@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const postsDirectory = path.join(process.cwd(), "src/app/posts");
+const postsDirectory = path.join(process.cwd(), "src/app/post");
 
 export interface PostMetadata {
   title: string;
@@ -44,7 +44,7 @@ export async function getPostSummaries(): Promise<PostSummary[]> {
     }
 
     try {
-      const { metadata } = await import(`@/app/posts/${postDir}/page.mdx`);
+      const { metadata } = await import(`@/app/post/${postDir}/page.mdx`);
       
       return {
         slug,
@@ -77,7 +77,7 @@ export async function getPost(slug: string): Promise<Post | null> {
       return null;
     }
 
-    const { metadata } = await import(`@/app/posts/${slug}/page.mdx`);
+    const { metadata } = await import(`@/app/post/${slug}/page.mdx`);
 
     return {
       slug,

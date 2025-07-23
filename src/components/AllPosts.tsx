@@ -54,7 +54,7 @@ export default function AllPosts({ posts }: AllPostsProps) {
                   ))}
                 </div>
                 <Link 
-                  href={`/posts/${post.slug}`} 
+                  href={`/post/${post.slug}`} 
                   className="text-indigo-500 no-underline font-medium transition-colors duration-200 hover:text-indigo-600"
                 >
                   Read More →

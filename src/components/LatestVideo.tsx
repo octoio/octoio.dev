@@ -1,37 +1,43 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function LatestVideo() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  
+  const [isPlaying, setIsPlaying] = useState(false);
+
   // For now, this is a placeholder. In the future, you can fetch from YouTube API
   const latestVideo = {
-    id: 'dQw4w9WgXcQ', // Placeholder video ID
-    title: 'Building My Game Development Ecosystem',
-    description: 'A deep dive into the tools and workflow I use for game development, featuring OCaml data pipelines and Unity integration.',
-    thumbnail: `https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg`
-  }
+    id: "f12FesaUYYk", // Placeholder video ID
+    title: "Fey (fæge) - Step Inside The Game Loop Logic - Devlog #2",
+    description: "A deep dive into the quests and the general game loop.",
+    thumbnail: `https://img.youtube.com/vi/f12FesaUYYk/maxresdefault.jpg`,
+  };
 
   const handleVideoClick = () => {
-    setIsPlaying(true)
-  }
+    setIsPlaying(true);
+  };
 
   const handleExternalClick = () => {
-    window.open(`https://www.youtube.com/watch?v=${latestVideo.id}`, '_blank')
-  }
+    window.open(`https://www.youtube.com/watch?v=${latestVideo.id}`, "_blank");
+  };
 
   return (
-    <section id="latest-video" className="py-20 px-8 bg-gradient-to-br from-indigo-500 to-purple-700">
+    <section
+      id="latest-video"
+      className="py-20 px-8 bg-gradient-to-br from-indigo-500 to-purple-700"
+    >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4 text-white">Latest Video</h2>
+        <h2 className="text-4xl font-bold text-center mb-4 text-white">
+          Latest Video
+        </h2>
         <p className="text-lg text-white/90 text-center mb-12 max-w-2xl mx-auto">
-          Watch my latest insights on game development, programming techniques, and creative processes.
+          Watch my latest insights on game development, programming techniques,
+          and creative processes.
         </p>
-        
+
         <div className="max-w-4xl mx-auto relative">
           <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-xl border border-white/20 shadow-2xl">
-            <div 
+            <div
               className="relative w-full pb-[56.25%] rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-600 cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
               onClick={isPlaying ? undefined : handleVideoClick}
             >
@@ -45,14 +51,14 @@ export default function LatestVideo() {
                 />
               ) : (
                 <>
-                  <img 
-                    src={latestVideo.thumbnail} 
+                  <img
+                    src={latestVideo.thumbnail}
                     alt={latestVideo.title}
                     className="absolute inset-0 w-full h-full object-cover transition-all duration-300"
                     onError={(e) => {
                       // Fallback to default thumbnail if maxresdefault fails
                       const target = e.target as HTMLImageElement;
-                      if (target.src.includes('maxresdefault')) {
+                      if (target.src.includes("maxresdefault")) {
                         target.src = `https://img.youtube.com/vi/${latestVideo.id}/hqdefault.jpg`;
                       }
                     }}
@@ -65,15 +71,19 @@ export default function LatestVideo() {
                 </>
               )}
             </div>
-            
+
             <div className="mt-4 pt-4 border-t border-white/10">
-              <h3 className="text-white text-xl font-semibold mb-2">{latestVideo.title}</h3>
-              <p className="text-white/80 leading-relaxed mb-4">{latestVideo.description}</p>
+              <h3 className="text-white text-xl font-semibold mb-2">
+                {latestVideo.title}
+              </h3>
+              <p className="text-white/80 leading-relaxed mb-4">
+                {latestVideo.description}
+              </p>
             </div>
           </div>
-          
+
           <div className="flex justify-center mt-8">
-            <button 
+            <button
               onClick={handleExternalClick}
               className="text-white font-medium px-6 py-3 rounded-lg bg-white/10 border border-white/20 backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:-translate-y-0.5"
             >
@@ -83,5 +93,5 @@ export default function LatestVideo() {
         </div>
       </div>
     </section>
-  )
+  );
 }

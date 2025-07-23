@@ -34,14 +34,14 @@ export default function Search({ isOpen, onClose }: SearchProps) {
       type: 'post' as const,
       title: 'Building a Multi-Language Game Development Ecosystem',
       description: 'How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.',
-      url: '/posts/multi-language-game-ecosystem/',
+      url: '/post/multi-language-game-ecosystem/',
       data: null
     },
     {
       type: 'post' as const,
       title: 'The Power of Type Safety in Game Data Pipelines',
       description: 'Exploring how strong typing across multiple languages prevents bugs and improves developer experience.',
-      url: '/posts/type-safety-game-pipelines/',
+      url: '/post/type-safety-game-pipelines/',
       data: null
     },
     {
