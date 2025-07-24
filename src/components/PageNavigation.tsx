@@ -9,9 +9,10 @@ interface Section {
 }
 
 const sections: Section[] = [
-  { id: "hero", label: "About" },
+  { id: "hero", label: "Home" },
   { id: "posts", label: "Posts" },
   { id: "latest-video", label: "Video" },
+  { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
   { id: "connect", label: "Connect" },
 ];
@@ -30,27 +31,30 @@ export default function PageNavigation() {
 
       if (sectionsWithElements.length === 0) return;
 
-      // Find the section closest to the top of the viewport
-      let activeSection = sectionsWithElements[0];
-      const viewportTop = window.scrollY + 150; // Increased offset slightly
+      // Use a smaller offset to improve detection
+      const viewportTop = window.scrollY + window.innerHeight * 0.3;
+      let currentActiveSection = sectionsWithElements[0];
 
-      for (const section of sectionsWithElements) {
+      // Find the section that's most visible in the viewport
+      for (let i = 0; i < sectionsWithElements.length; i++) {
+        const section = sectionsWithElements[i];
         if (!section.element) continue;
         
-        const sectionTop = section.element.offsetTop;
-        const sectionBottom = sectionTop + section.element.offsetHeight;
+        const rect = section.element.getBoundingClientRect();
+        const sectionTop = window.scrollY + rect.top;
         
-        // Check if we're within this section
-        if (viewportTop >= sectionTop && viewportTop < sectionBottom) {
-          activeSection = section;
+        // If this section's top is above our detection point, it's a candidate
+        if (sectionTop <= viewportTop) {
+          currentActiveSection = section;
+        }
+        
+        // If we've found a section that starts after our detection point, stop
+        if (sectionTop > viewportTop) {
           break;
-        } else if (sectionTop <= viewportTop) {
-          // This section has passed, keep it as candidate
-          activeSection = section;
         }
       }
 
-      setActiveSection(activeSection.id);
+      setActiveSection(currentActiveSection.id);
     };
 
     // Initial setup

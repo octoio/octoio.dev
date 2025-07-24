@@ -51,9 +51,12 @@ export default function Search({ isOpen, onClose }: SearchProps) {
   }), [searchData])
 
   const results = useMemo(() => {
-    if (!query.trim()) return []
+    if (!query.trim()) {
+      // Show all items by default when no query
+      return searchData.slice(0, 8).map((item, index) => ({ item, refIndex: index }))
+    }
     return fuse.search(query).slice(0, 8)
-  }, [query, fuse])
+  }, [query, fuse, searchData])
 
   useEffect(() => {
     if (isOpen) {
@@ -118,7 +121,7 @@ export default function Search({ isOpen, onClose }: SearchProps) {
       >
         <input
           type="text"
-          placeholder="Search projects, posts, videos, and pages..."
+          placeholder="Search or browse all content..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full p-6 text-lg bg-transparent border-none outline-none border-b border-slate-200 placeholder:text-slate-400"
@@ -136,12 +139,6 @@ export default function Search({ isOpen, onClose }: SearchProps) {
           {!isLoading && results.length === 0 && query.trim() && (
             <div className="p-6 text-center text-slate-500">
               No results found for &quot;{query}&quot;
-            </div>
-          )}
-          
-          {!isLoading && results.length === 0 && !query.trim() && (
-            <div className="p-6 text-center text-slate-500">
-              Start typing to search projects, posts, videos, and pages...
             </div>
           )}
           
@@ -175,7 +172,7 @@ export default function Search({ isOpen, onClose }: SearchProps) {
           ))}
         </div>
         
-        {results.length > 0 && (
+        {!isLoading && results.length > 0 && (
           <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 text-xs text-slate-500">
             Use ↑↓ to navigate, ↵ to select, ESC to close
           </div>

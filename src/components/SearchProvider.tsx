@@ -35,15 +35,15 @@ export default function SearchProvider() {
         onClose={() => setIsSearchOpen(false)} 
       />
       
-      {/* Floating search button */}
+      {/* Modern search button */}
       <button
         onClick={() => setIsSearchOpen(true)}
-        className="fixed bottom-6 left-6 z-40 lg:bottom-8 lg:left-8 bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-indigo-400/20 group"
-        title="Search (⌘K)"
+        className="fixed bottom-6 left-6 z-40 lg:bottom-8 lg:left-8 bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 backdrop-blur-md border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-xl px-4 py-3 flex items-center gap-3 group"
+        title="Search"
         aria-label="Open search"
       >
         <svg 
-          className="w-6 h-6" 
+          className="w-5 h-5 text-slate-500" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -56,9 +56,13 @@ export default function SearchProvider() {
           />
         </svg>
         
-        {/* Keyboard hint */}
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-          Press ⌘K
+        <span className="text-sm font-medium">Search</span>
+        
+        {/* Keyboard shortcut */}
+        <div className="flex items-center gap-1">
+          <kbd className="px-2 py-1 text-xs font-semibold text-slate-500 bg-slate-100 border border-slate-300 rounded-md">
+            ⌘K
+          </kbd>
         </div>
       </button>
     </>
