@@ -56,9 +56,12 @@ export default function Hero() {
     const interval = setInterval(() => {
       setCurrentTech((prev) => (prev + 1) % techStack.length);
     }, 2000);
-
     return () => clearInterval(interval);
   }, [techStack.length]);
+
+  const handleNextTech = () => {
+    setCurrentTech((prev) => (prev + 1) % techStack.length);
+  };
 
   return (
     <section
@@ -82,19 +85,20 @@ export default function Hero() {
                 </h1>
                 <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
                   <span className="text-xl text-white/90">Building with</span>
-                  <div
-                    className={`px-4 py-2 rounded-lg bg-gradient-to-r ${techStack[currentTech].color} text-white font-bold text-lg transition-all duration-500 transform hover:scale-105`}
+                  <button
+                    onClick={handleNextTech}
+                    className={`px-4 py-2 rounded-lg bg-gradient-to-r ${techStack[currentTech].color} text-white font-bold text-lg transition-transform duration-300 hover:scale-110 flex items-center gap-2`}
                   >
                     <Image
                       src={techStack[currentTech].logo}
                       alt={`${techStack[currentTech].name} logo`}
                       width={24}
                       height={24}
-                      className={"mr-2 inline-block filter brightness-0 invert"}
+                      className={"inline-block filter brightness-0 invert"}
                       unoptimized
                     />
                     {techStack[currentTech].name}
-                  </div>
+                  </button>
                 </div>
               </div>
 
@@ -107,12 +111,12 @@ export default function Hero() {
               <div className="flex justify-center lg:justify-start">
                 <Link
                   href="#about"
-                  className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-xl text-white font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 no-underline"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold transition-all hover:bg-white/20 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <span className="flex items-center justify-center gap-2">
+                  <span className="flex items-center gap-2">
                     About Me
                     <svg
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      className="w-5 h-5 transition-transform group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -129,7 +133,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right side - Interactive code terminal */}
+            {/* Right side - Terminal */}
             <div
               className={`relative transition-all duration-1000 delay-300 ${
                 isVisible
