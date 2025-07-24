@@ -1,0 +1,492 @@
+[
+  {
+    "type": "project",
+    "title": "Fey Data Pipeline (OCaml)",
+    "description": "OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.",
+    "url": "/projects#1",
+    "tags": [
+      "OCaml",
+      "ATD",
+      "Dune",
+      "JSON",
+      "C#"
+    ],
+    "featured": true,
+    "data": {
+      "id": "1",
+      "title": "Fey Data Pipeline (OCaml)",
+      "description": "OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.",
+      "technologies": [
+        "OCaml",
+        "ATD",
+        "Dune",
+        "JSON",
+        "C#"
+      ],
+      "githubUrl": "https://github.com/octoio/fey-data",
+      "featured": true
+    }
+  },
+  {
+    "type": "project",
+    "title": "Fey Console (React/TypeScript)",
+    "description": "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing with 1200+ tests.",
+    "url": "/projects#2",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Ant Design",
+      "Zustand",
+      "Vitest"
+    ],
+    "featured": true,
+    "data": {
+      "id": "2",
+      "title": "Fey Console (React/TypeScript)",
+      "description": "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing with 1200+ tests.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Ant Design",
+        "Zustand",
+        "Vitest"
+      ],
+      "githubUrl": "https://github.com/octoio/fey-console",
+      "featured": true
+    }
+  },
+  {
+    "type": "project",
+    "title": "Voice Viewer",
+    "description": "Audio visualization tool for analyzing and displaying voice patterns and audio data.",
+    "url": "/projects#3",
+    "tags": [
+      "TypeScript",
+      "Web Audio API",
+      "Canvas"
+    ],
+    "featured": false,
+    "data": {
+      "id": "3",
+      "title": "Voice Viewer",
+      "description": "Audio visualization tool for analyzing and displaying voice patterns and audio data.",
+      "technologies": [
+        "TypeScript",
+        "Web Audio API",
+        "Canvas"
+      ],
+      "githubUrl": "https://github.com/octoio/voice-viewer",
+      "featured": false
+    }
+  },
+  {
+    "type": "project",
+    "title": "Whisper Transcriber",
+    "description": "Audio transcription tool leveraging OpenAI's Whisper model for accurate speech-to-text conversion.",
+    "url": "/projects#4",
+    "tags": [
+      "Python",
+      "OpenAI Whisper",
+      "Audio Processing"
+    ],
+    "featured": false,
+    "data": {
+      "id": "4",
+      "title": "Whisper Transcriber",
+      "description": "Audio transcription tool leveraging OpenAI's Whisper model for accurate speech-to-text conversion.",
+      "technologies": [
+        "Python",
+        "OpenAI Whisper",
+        "Audio Processing"
+      ],
+      "githubUrl": "https://github.com/octoio/whisper-transcriber",
+      "featured": false
+    }
+  },
+  {
+    "type": "project",
+    "title": "Fey Manim Animations",
+    "description": "Mathematical animation system for creating devlog content and educational materials.",
+    "url": "/projects#5",
+    "tags": [
+      "Python",
+      "Manim",
+      "Animation"
+    ],
+    "featured": true,
+    "data": {
+      "id": "5",
+      "title": "Fey Manim Animations",
+      "description": "Mathematical animation system for creating devlog content and educational materials.",
+      "technologies": [
+        "Python",
+        "Manim",
+        "Animation"
+      ],
+      "githubUrl": "https://github.com/octoio/fey-manim",
+      "featured": true
+    }
+  },
+  {
+    "type": "post",
+    "title": "Building a Multi-Language Game Development Ecosystem",
+    "description": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
+    "url": "/post/multi-language-game-ecosystem/",
+    "tags": [
+      "Game Development",
+      "OCaml",
+      "TypeScript",
+      "Unity"
+    ],
+    "featured": true,
+    "data": {
+      "slug": "multi-language-game-ecosystem",
+      "title": "Building a Multi-Language Game Development Ecosystem",
+      "excerpt": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
+      "publishedAt": "2024-03-15",
+      "readTime": 8,
+      "tags": [
+        "Game Development",
+        "OCaml",
+        "TypeScript",
+        "Unity"
+      ],
+      "featured": true
+    }
+  },
+  {
+    "type": "post",
+    "title": "The Power of Type Safety in Game Data Pipelines",
+    "description": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
+    "url": "/post/type-safety-game-pipelines/",
+    "tags": [
+      "Type Safety",
+      "OCaml",
+      "Game Development"
+    ],
+    "featured": true,
+    "data": {
+      "slug": "type-safety-game-pipelines",
+      "title": "The Power of Type Safety in Game Data Pipelines",
+      "excerpt": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
+      "publishedAt": "2024-02-28",
+      "readTime": 6,
+      "tags": [
+        "Type Safety",
+        "OCaml",
+        "Game Development"
+      ],
+      "featured": true
+    }
+  },
+  {
+    "type": "video",
+    "title": "Fey (fæge) - Step Inside The Game Loop Logic - Devlog #2",
+    "description": "I was able to cook something that I am very proud of for this third update ⛺️\n\nThe game is going in the right direction, and I can't wait to show more! Stay tuned for an upcoming full gameplay session...",
+    "url": "https://www.youtube.com/watch?v=f12FesaUYYk",
+    "tags": [
+      "roguelike",
+      "unity",
+      "gamedev",
+      "indiegame",
+      "rpg",
+      "devlog",
+      "YouTube",
+      "Video",
+      "Tutorial"
+    ],
+    "featured": false,
+    "data": {
+      "id": "f12FesaUYYk",
+      "title": "Fey (fæge) - Step Inside The Game Loop Logic - Devlog #2",
+      "description": "I was able to cook something that I am very proud of for this third update ⛺️\n\nThe game is going in the right direction, and I can't wait to show more! Stay tuned for an upcoming full gameplay session with my friends!\n\nLinks\n---------------------------------\nFey's Official Discord: https://discord.gg/3FxWdFvKYU\nTikTok Account: https://www.tiktok.com/@octoio_dev\nReddit Account: https://www.reddit.com/r/octoio\n\nMusic\n---------------------------------\nMedieval Lofi https://www.youtube.com/channel/UCNol4Qo1VfTFKbU4fZxOU8w\nhttps://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮\n\nChapters\n---------------------------------\n0:00 Intro\n0:17 The Village\n0:33 Loading Stages\n0:46 Quest Component\n1:01 Quests Relations\n1:42 Quests Entities\n2:14 Example\n2:49 Running Errands\n3:26 The Forest's Unwanted Guests\n4:00 Looping Back\n4:15 Outro",
+      "publishedAt": "2024-07-28T23:30:07Z",
+      "thumbnailUrl": "https://i.ytimg.com/vi/f12FesaUYYk/maxresdefault.jpg",
+      "viewCount": "188",
+      "duration": "PT4M46S",
+      "tags": [
+        "roguelike",
+        "unity",
+        "gamedev",
+        "indiegame",
+        "rpg",
+        "devlog"
+      ]
+    }
+  },
+  {
+    "type": "video",
+    "title": "Fey (fæge) - UI Update - Devlog #1",
+    "description": "Here's the second devlog about the game. I've been really busy with life recently and this took longer to put together than I expected, but I hope you enjoy.\n\nLinks\n---------------------------------\nF...",
+    "url": "https://www.youtube.com/watch?v=vXZiANpTfIo",
+    "tags": [
+      "roguelike",
+      "unity",
+      "gamedev",
+      "indiegame",
+      "rpg",
+      "devlog",
+      "YouTube",
+      "Video",
+      "Tutorial"
+    ],
+    "featured": false,
+    "data": {
+      "id": "vXZiANpTfIo",
+      "title": "Fey (fæge) - UI Update - Devlog #1",
+      "description": "Here's the second devlog about the game. I've been really busy with life recently and this took longer to put together than I expected, but I hope you enjoy.\n\nLinks\n---------------------------------\nFey's Official Discord: https://discord.gg/3FxWdFvKYU\nTikTok Account: https://www.tiktok.com/@octoio_dev\nReddit Account: https://www.reddit.com/r/octoio\n\nMusic\n---------------------------------\nMedieval Lofi https://www.youtube.com/channel/UCNol4Qo1VfTFKbU4fZxOU8w\nhttps://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮\n\nChapters\n---------------------------------\n0:00 Introduction\n0:18 Chat\n0:25 Inventories\n0:45 Skill Bar\n0:57 Sound Effects\n1:14 Loot On Enemy\n1:20 Character Frames\n1:38 Experience Bar\n1:44 Drop Votes\n1:52 Skill Drop Refactor\n2:14 Tooltip / New Models\n2:37 Next Steps\n2:54 Outro",
+      "publishedAt": "2024-06-09T15:30:06Z",
+      "thumbnailUrl": "https://i.ytimg.com/vi/vXZiANpTfIo/maxresdefault.jpg",
+      "viewCount": "541",
+      "duration": "PT3M12S",
+      "tags": [
+        "roguelike",
+        "unity",
+        "gamedev",
+        "indiegame",
+        "rpg",
+        "devlog"
+      ]
+    }
+  },
+  {
+    "type": "video",
+    "title": "Fey (fæge) - My Online Coop Dungeon Crawler RPG Roguelite",
+    "description": "Go check the full devlog on my channel!\n\nhttps://discord.gg/3FxWdFvKYU\n\nMusic by https://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮",
+    "url": "https://www.youtube.com/watch?v=MAxjgFCfEGs",
+    "tags": [
+      "roguelike",
+      "unity",
+      "gamedev",
+      "indiegame",
+      "rpg",
+      "devlog",
+      "YouTube",
+      "Video",
+      "Tutorial"
+    ],
+    "featured": false,
+    "data": {
+      "id": "MAxjgFCfEGs",
+      "title": "Fey (fæge) - My Online Coop Dungeon Crawler RPG Roguelite",
+      "description": "Go check the full devlog on my channel!\n\nhttps://discord.gg/3FxWdFvKYU\n\nMusic by https://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮",
+      "publishedAt": "2024-01-07T19:25:53Z",
+      "thumbnailUrl": "https://i.ytimg.com/vi/MAxjgFCfEGs/maxresdefault.jpg",
+      "viewCount": "624",
+      "duration": "PT25S",
+      "tags": [
+        "roguelike",
+        "unity",
+        "gamedev",
+        "indiegame",
+        "rpg",
+        "devlog"
+      ]
+    }
+  },
+  {
+    "type": "video",
+    "title": "Fey (fæge) - My Online Coop Dungeon Crawler RPG Roguelite - Devlog #0",
+    "description": "🚀 I'm leaping into the unknown! Welcome to my first devlog for Fey (fæge), an online coop dungeon crawler RPG roguelite, from its ideation to its creation.\n\nThe devlogs for the game will be bite-size...",
+    "url": "https://www.youtube.com/watch?v=qpSnns2_SBg",
+    "tags": [
+      "roguelike",
+      "unity",
+      "gamedev",
+      "indiegame",
+      "rpg",
+      "devlog",
+      "YouTube",
+      "Video",
+      "Tutorial"
+    ],
+    "featured": false,
+    "data": {
+      "id": "qpSnns2_SBg",
+      "title": "Fey (fæge) - My Online Coop Dungeon Crawler RPG Roguelite - Devlog #0",
+      "description": "🚀 I'm leaping into the unknown! Welcome to my first devlog for Fey (fæge), an online coop dungeon crawler RPG roguelite, from its ideation to its creation.\n\nThe devlogs for the game will be bite-sized to cover the different systems.\n\nLinks\n---------------------------------\nFey's Official Discord: https://discord.gg/3FxWdFvKYU\nTikTok Account: https://www.tiktok.com/@octoio_dev\nReddit Account: https://www.reddit.com/r/octoio\n\nMusic\n---------------------------------\nMedieval Lofi https://www.youtube.com/channel/UCNol4Qo1VfTFKbU4fZxOU8w\nhttps://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮\n\nChapters\n---------------------------------\n0:00 Introduction\n1:03 Fey\n1:41 Inspiration\n3:48 Plannification\n4:24 Iterations\n6:36 Current State\n7:29 Outro",
+      "publishedAt": "2023-12-27T18:41:24Z",
+      "thumbnailUrl": "https://i.ytimg.com/vi/qpSnns2_SBg/maxresdefault.jpg",
+      "viewCount": "2683",
+      "duration": "PT7M46S",
+      "tags": [
+        "roguelike",
+        "unity",
+        "gamedev",
+        "indiegame",
+        "rpg",
+        "devlog"
+      ]
+    }
+  },
+  {
+    "type": "video",
+    "title": "octoio: forewords",
+    "description": "In this episode I introduce myself and talk about the reasons why I am starting a devlog.\nFollow: https://linktr.ee/octoio",
+    "url": "https://www.youtube.com/watch?v=3eu4caesh4E",
+    "tags": [
+      "Devlog",
+      "fey",
+      "game dev",
+      "indie game",
+      "octoio",
+      "unity",
+      "YouTube",
+      "Video",
+      "Tutorial"
+    ],
+    "featured": false,
+    "data": {
+      "id": "3eu4caesh4E",
+      "title": "octoio: forewords",
+      "description": "In this episode I introduce myself and talk about the reasons why I am starting a devlog.\nFollow: https://linktr.ee/octoio",
+      "publishedAt": "2023-04-08T00:50:58Z",
+      "thumbnailUrl": "https://i.ytimg.com/vi/3eu4caesh4E/maxresdefault.jpg",
+      "viewCount": "48",
+      "duration": "PT2M5S",
+      "tags": [
+        "Devlog",
+        "fey",
+        "game dev",
+        "indie game",
+        "octoio",
+        "unity"
+      ]
+    }
+  },
+  {
+    "type": "social",
+    "title": "Email",
+    "description": "Send me a direct message",
+    "url": "mailto:octoiodev@gmail.com",
+    "tags": [
+      "email"
+    ],
+    "featured": false,
+    "data": {
+      "name": "Email",
+      "platform": "email",
+      "url": "mailto:octoiodev@gmail.com",
+      "username": "octoiodev@gmail.com",
+      "description": "Send me a direct message",
+      "icon": "/images/social/email.svg"
+    }
+  },
+  {
+    "type": "social",
+    "title": "Discord",
+    "description": "Join our dev community",
+    "url": "https://discord.gg/Wb2ZZCEF",
+    "tags": [
+      "discord"
+    ],
+    "featured": false,
+    "data": {
+      "name": "Discord",
+      "platform": "discord",
+      "url": "https://discord.gg/Wb2ZZCEF",
+      "username": "octoio",
+      "description": "Join our dev community",
+      "icon": "/images/social/discord.svg"
+    }
+  },
+  {
+    "type": "social",
+    "title": "YouTube",
+    "description": "Dev tutorials and insights",
+    "url": "https://youtube.com/@octoio",
+    "tags": [
+      "youtube"
+    ],
+    "featured": false,
+    "data": {
+      "name": "YouTube",
+      "platform": "youtube",
+      "url": "https://youtube.com/@octoio",
+      "username": "@octoio",
+      "description": "Dev tutorials and insights",
+      "icon": "/images/social/youtube.svg"
+    }
+  },
+  {
+    "type": "social",
+    "title": "Reddit",
+    "description": "Dev discussions and tips",
+    "url": "https://reddit.com/u/octoio",
+    "tags": [
+      "reddit"
+    ],
+    "featured": false,
+    "data": {
+      "name": "Reddit",
+      "platform": "reddit",
+      "url": "https://reddit.com/u/octoio",
+      "username": "u/octoio",
+      "description": "Dev discussions and tips",
+      "icon": "/images/social/reddit.svg"
+    }
+  },
+  {
+    "type": "social",
+    "title": "Instagram",
+    "description": "Behind-the-scenes content",
+    "url": "https://instagram.com/octoio",
+    "tags": [
+      "instagram"
+    ],
+    "featured": false,
+    "data": {
+      "name": "Instagram",
+      "platform": "instagram",
+      "url": "https://instagram.com/octoio",
+      "username": "@octoio.dev",
+      "description": "Behind-the-scenes content",
+      "icon": "/images/social/instagram.svg"
+    }
+  },
+  {
+    "type": "social",
+    "title": "TikTok",
+    "description": "Quick dev tips and tricks",
+    "url": "https://www.tiktok.com/@octoio_dev",
+    "tags": [
+      "tiktok"
+    ],
+    "featured": false,
+    "data": {
+      "name": "TikTok",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@octoio_dev",
+      "username": "@octoio_dev",
+      "description": "Quick dev tips and tricks",
+      "icon": "/images/social/tiktok.svg"
+    }
+  },
+  {
+    "type": "page",
+    "title": "All Projects",
+    "description": "View all my projects",
+    "url": "/projects/",
+    "tags": [
+      "projects",
+      "showcase"
+    ],
+    "featured": false,
+    "data": null
+  },
+  {
+    "type": "page",
+    "title": "All Posts",
+    "description": "View all my blog posts",
+    "url": "/posts/",
+    "tags": [
+      "blog",
+      "posts",
+      "articles"
+    ],
+    "featured": false,
+    "data": null
+  }
+]

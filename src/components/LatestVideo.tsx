@@ -51,6 +51,8 @@ export default function LatestVideo() {
                 />
               ) : (
                 <>
+                  {/* Using img tag instead of next/image for YouTube thumbnails with error handling */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={latestVideo.thumbnail}
                     alt={latestVideo.title}

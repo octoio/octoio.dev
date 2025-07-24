@@ -30,8 +30,15 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Environment files
+# NEVER commit actual API keys or sensitive data!
+.env.local
+.env.production
+.env
+
+# These files are safe to commit (no sensitive data)
+# .env.example - Template file
+# .env.dev - Development defaults
 
 # vercel
 .vercel

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { socialLinks } from '@/data/social'
 
 export default function SocialLinks() {

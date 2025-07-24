@@ -1,9 +1,17 @@
 'use client'
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import Fuse from 'fuse.js'
-import { projects } from '@/data/projects'
-import { socialLinks } from '@/data/social'
+
+interface SearchItem {
+  type: 'project' | 'post' | 'social' | 'page' | 'video'
+  title: string
+  description: string
+  url: string
+  tags: string[]
+  featured: boolean
+  data: unknown
+}
 
 interface SearchProps {
   isOpen: boolean
@@ -13,55 +21,32 @@ interface SearchProps {
 export default function Search({ isOpen, onClose }: SearchProps) {
   const [query, setQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [searchData, setSearchData] = useState<SearchItem[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const searchData = useMemo(() => [
-    ...projects.map(project => ({
-      type: 'project' as const,
-      title: project.title,
-      description: project.description,
-      url: `/projects#${project.id}`,
-      data: project
-    })),
-    ...socialLinks.map(social => ({
-      type: 'social' as const,
-      title: social.name,
-      description: social.description,
-      url: social.url,
-      data: social
-    })),
-    // Add posts to search
-    {
-      type: 'post' as const,
-      title: 'Building a Multi-Language Game Development Ecosystem',
-      description: 'How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.',
-      url: '/post/multi-language-game-ecosystem/',
-      data: null
-    },
-    {
-      type: 'post' as const,
-      title: 'The Power of Type Safety in Game Data Pipelines',
-      description: 'Exploring how strong typing across multiple languages prevents bugs and improves developer experience.',
-      url: '/post/type-safety-game-pipelines/',
-      data: null
-    },
-    {
-      type: 'page' as const,
-      title: 'All Projects',
-      description: 'View all my projects',
-      url: '/projects',
-      data: null
-    },
-    {
-      type: 'page' as const,
-      title: 'All Posts',
-      description: 'Read all my blog posts',
-      url: '/posts',
-      data: null
+  // Load search index on component mount
+  useEffect(() => {
+    const loadSearchIndex = async () => {
+      try {
+        const response = await fetch('/search-index.json')
+        if (response.ok) {
+          const data = await response.json()
+          setSearchData(data)
+        } else {
+          console.error('Failed to load search index')
+        }
+      } catch (error) {
+        console.error('Error loading search index:', error)
+      } finally {
+        setIsLoading(false)
+      }
     }
-  ], [])
+
+    loadSearchIndex()
+  }, [])
 
   const fuse = useMemo(() => new Fuse(searchData, {
-    keys: ['title', 'description'],
+    keys: ['title', 'description', 'tags'],
     threshold: 0.3,
   }), [searchData])
 
@@ -80,6 +65,16 @@ export default function Search({ isOpen, onClose }: SearchProps) {
   useEffect(() => {
     setSelectedIndex(0)
   }, [results])
+
+  const handleResultClick = useCallback((url: string) => {
+    // Open internal links in same tab, external links in new tab
+    if (url.startsWith('/') || url.startsWith('#')) {
+      window.location.href = url
+    } else {
+      window.open(url, '_blank')
+    }
+    onClose()
+  }, [onClose])
 
   useEffect(() => {
     if (!isOpen) return
@@ -108,19 +103,9 @@ export default function Search({ isOpen, onClose }: SearchProps) {
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, onClose, results, selectedIndex])
+  }, [isOpen, onClose, results, selectedIndex, handleResultClick])
 
   if (!isOpen) return null
-
-  const handleResultClick = (url: string) => {
-    // Open internal links in same tab, external links in new tab
-    if (url.startsWith('/') || url.startsWith('#')) {
-      window.location.href = url
-    } else {
-      window.open(url, '_blank')
-    }
-    onClose()
-  }
 
   return (
     <div 
@@ -133,23 +118,30 @@ export default function Search({ isOpen, onClose }: SearchProps) {
       >
         <input
           type="text"
-          placeholder="Search projects, pages, and social links..."
+          placeholder="Search projects, posts, videos, and pages..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full p-6 text-lg bg-transparent border-none outline-none border-b border-slate-200 placeholder:text-slate-400"
           autoFocus
+          disabled={isLoading}
         />
         
         <div className="max-h-[60vh] overflow-y-auto">
-          {results.length === 0 && query.trim() && (
+          {isLoading && (
+            <div className="p-6 text-center text-slate-500">
+              Loading search index...
+            </div>
+          )}
+          
+          {!isLoading && results.length === 0 && query.trim() && (
             <div className="p-6 text-center text-slate-500">
               No results found for &quot;{query}&quot;
             </div>
           )}
           
-          {results.length === 0 && !query.trim() && (
+          {!isLoading && results.length === 0 && !query.trim() && (
             <div className="p-6 text-center text-slate-500">
-              Start typing to search projects, pages, and social links...
+              Start typing to search projects, posts, videos, and pages...
             </div>
           )}
           
@@ -166,6 +158,7 @@ export default function Search({ isOpen, onClose }: SearchProps) {
                   result.item.type === 'project' ? 'bg-blue-100 text-blue-800' :
                   result.item.type === 'social' ? 'bg-green-100 text-green-800' :
                   result.item.type === 'post' ? 'bg-orange-100 text-orange-800' :
+                  result.item.type === 'video' ? 'bg-red-100 text-red-800' :
                   'bg-purple-100 text-purple-800'
                 }`}>
                   {result.item.type}
