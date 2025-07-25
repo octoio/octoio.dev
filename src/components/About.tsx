@@ -1,29 +1,35 @@
 export default function About() {
   const coreSkills = [
-    { name: 'Game Development', icon: '🎮', description: 'Unity, C#, Game Logic Systems' },
-    { name: 'Type-Safe Programming', icon: '🔧', description: 'OCaml, TypeScript, Rust' },
-    { name: 'Web Development', icon: '🌐', description: 'React, Next.js, Modern UI/UX' },
-    { name: 'System Architecture', icon: '🏗️', description: 'Data Pipelines, Code Generation' }
+    { name: 'Full-Stack Development', icon: '🌐', description: 'Web, mobile, backend systems' },
+    { name: 'Game Development', icon: '🎮', description: 'Unity, C#, interactive experiences' },
+    { name: 'AI/ML Development', icon: '🤖', description: 'Machine learning, data science' },
+    { name: 'DevOps & Architecture', icon: '🏗️', description: 'Infrastructure, automation, scaling' }
   ]
 
   const journey = [
     {
-      period: 'Present',
-      title: 'Game Developer & Content Creator',
-      description: 'Building Fey (fæge), an online coop dungeon crawler RPG roguelite, while sharing the development journey through devlogs and technical content.',
-      tech: ['Unity', 'OCaml', 'C#', 'TypeScript']
+      period: '2016-2020',
+      title: 'The Programming Awakening',
+      description: 'Discovered programming in my first CS class - instant brain expansion moment. Switched from Electrical Engineering to Computer Science, earning my CS Engineering degree. Coding became both hobby and profession.',
+      tech: ['CS Fundamentals', 'Multiple Languages', 'Problem Solving']
     },
     {
-      period: '2023-2024',
-      title: 'Multi-Language Ecosystem Architect',
-      description: 'Designed and built a comprehensive game development ecosystem spanning OCaml data pipelines, React management interfaces, and Unity integration.',
-      tech: ['OCaml', 'React', 'Unity', 'ATD', 'Dune']
+      period: '2020-2022',
+      title: 'Professional Growth & Pandemic Projects',
+      description: 'Landed my first industry job and created my first project - a web-based game to bring people together during the pandemic. Learned the art of building experiences that connect people.',
+      tech: ['Web Technologies', 'Game Development', 'Real-time Systems']
     },
     {
-      period: 'Earlier',
-      title: 'Creative Problem Solver',
-      description: 'Developed tools for audio processing, voice analysis, and mathematical visualizations, always focusing on elegant solutions to complex problems.',
-      tech: ['Python', 'Audio APIs', 'Manim', 'OpenAI']
+      period: '2022-2023',
+      title: 'Fey Development Begins',
+      description: 'Started developing Fey (fæge), an ambitious online multiplayer roguelite. Built comprehensive tooling ecosystem spanning data pipelines, management interfaces, and game integration.',
+      tech: ['Unity', 'C#', 'OCaml', 'TypeScript', 'Networking']
+    },
+    {
+      period: '2023-Present',
+      title: 'Octoio Era & Content Creation',
+      description: 'Launched the Octoio persona with my first devlog after hundreds of hours developing Fey. Now sharing the journey of building an online coop dungeon crawler while exploring creative programming projects.',
+      tech: ['Unity', 'OCaml', 'React', 'Content Creation']
     }
   ]
 
@@ -33,9 +39,9 @@ export default function About() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            I&apos;m a passionate game developer who believes in the power of well-crafted code. 
-            My approach combines functional programming principles with creative game design, 
-            resulting in robust systems that scale from concept to production.
+            I&apos;m Octoio - a versatile developer who discovered the magic of programming in 2016 and never looked back. 
+            My passion lies in building experiences that bring joy to people, from pandemic-era connection games 
+            to ambitious multiplayer adventures. Coding is both my profession and my playground.
           </p>
         </div>
 
@@ -58,10 +64,10 @@ export default function About() {
             <div className="mt-12 p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100">
               <h4 className="font-bold text-slate-900 mb-3">My Philosophy</h4>
               <p className="text-slate-700 leading-relaxed">
-                <span className="font-semibold">Type safety isn&apos;t just theory—it&apos;s freedom.</span> 
-                {' '}When your compiler catches bugs before they reach players, you can focus on what matters: 
-                creating compelling experiences. I architect systems that let creativity flourish within robust, 
-                predictable foundations.
+                <span className="font-semibold">The best experiences come from continuous exploration.</span> 
+                {' '}I&apos;m always learning, always experimenting. Whether it&apos;s a new language, a wild project idea, 
+                or a tool that solves an interesting problem - I build things that matter to people. 
+                My versatility across the full stack lets me bring ideas to life from any angle.
               </p>
             </div>
           </div>
