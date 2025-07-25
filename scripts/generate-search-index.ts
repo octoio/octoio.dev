@@ -293,6 +293,33 @@ async function generateSearchIndex() {
       // Add static pages
       {
         type: "page" as const,
+        title: "Home",
+        description: "Octoio's portfolio - Game development, creative projects, and technical exploration",
+        url: "/",
+        tags: ["home", "portfolio", "octoio"],
+        featured: true,
+        data: null,
+      },
+      {
+        type: "page" as const,
+        title: "About Me",
+        description: "Learn about my journey from discovering programming in 2016 to creating the Octoio persona and developing games",
+        url: "/#about",
+        tags: ["about", "journey", "biography", "developer"],
+        featured: false,
+        data: null,
+      },
+      {
+        type: "page" as const,
+        title: "Connect & Social Links",
+        description: "Get in touch via email, Discord, YouTube, and other social platforms",
+        url: "/#connect",
+        tags: ["contact", "social", "discord", "youtube", "email"],
+        featured: false,
+        data: null,
+      },
+      {
+        type: "page" as const,
         title: "All Projects",
         description: "View all my projects",
         url: "/projects/",
@@ -326,7 +353,7 @@ async function generateSearchIndex() {
     console.log(`   🚀 ${projects.length} projects`);
     console.log(`   📺 ${youtubeVideos.length} YouTube videos`);
     console.log(`   🔗 ${socialLinks.length} social links`);
-    console.log(`   📄 2 static pages`);
+    console.log(`   📄 5 static pages`);
     console.log(`   💾 Saved to: ${outputPath}`);
 
     return searchIndex;

@@ -186,7 +186,7 @@
       "slug": "building-with-ai-and-claude",
       "title": "Building This Website: My AI-Powered Development Experience",
       "excerpt": "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
-      "publishedAt": "2025-01-25",
+      "publishedAt": "2025-07-25",
       "readTime": 5,
       "tags": [
         "AI Development",
@@ -214,7 +214,7 @@
       "slug": "multi-language-game-ecosystem",
       "title": "Building a Multi-Language Game Development Ecosystem",
       "excerpt": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
-      "publishedAt": "2024-03-15",
+      "publishedAt": "2025-07-20",
       "readTime": 8,
       "tags": [
         "Game Development",
@@ -240,7 +240,7 @@
       "slug": "type-safety-game-pipelines",
       "title": "The Power of Type Safety in Game Data Pipelines",
       "excerpt": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
-      "publishedAt": "2024-02-28",
+      "publishedAt": "2025-07-20",
       "readTime": 6,
       "tags": [
         "Type Safety",
@@ -532,6 +532,48 @@
       "description": "Quick dev tips and tricks",
       "icon": "/images/social/tiktok.svg"
     }
+  },
+  {
+    "type": "page",
+    "title": "Home",
+    "description": "Octoio's portfolio - Game development, creative projects, and technical exploration",
+    "url": "/",
+    "tags": [
+      "home",
+      "portfolio",
+      "octoio"
+    ],
+    "featured": true,
+    "data": null
+  },
+  {
+    "type": "page",
+    "title": "About Me",
+    "description": "Learn about my journey from discovering programming in 2016 to creating the Octoio persona and developing games",
+    "url": "/#about",
+    "tags": [
+      "about",
+      "journey",
+      "biography",
+      "developer"
+    ],
+    "featured": false,
+    "data": null
+  },
+  {
+    "type": "page",
+    "title": "Connect & Social Links",
+    "description": "Get in touch via email, Discord, YouTube, and other social platforms",
+    "url": "/#connect",
+    "tags": [
+      "contact",
+      "social",
+      "discord",
+      "youtube",
+      "email"
+    ],
+    "featured": false,
+    "data": null
   },
   {
     "type": "page",
