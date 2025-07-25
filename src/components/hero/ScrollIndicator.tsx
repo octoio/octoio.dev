@@ -3,12 +3,30 @@ interface ScrollIndicatorProps {
 }
 
 export default function ScrollIndicator({ text = "Scroll to explore" }: ScrollIndicatorProps) {
+  const scrollToNextSection = () => {
+    // Find the next section after hero (which should be LatestVideo section)
+    const heroSection = document.querySelector('section');
+    if (heroSection) {
+      const nextSection = heroSection.nextElementSibling as HTMLElement;
+      if (nextSection) {
+        nextSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   return (
-    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <div className="flex flex-col items-center text-white/70">
+    <button 
+      onClick={scrollToNextSection}
+      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group transition-colors duration-300 hover:text-white bg-transparent border-none"
+      aria-label="Scroll to next section"
+    >
+      <div className="flex flex-col items-center text-white/70 group-hover:text-white/90">
         <span className="text-sm mb-2">{text}</span>
         <svg
-          className="w-6 h-6"
+          className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -21,6 +39,6 @@ export default function ScrollIndicator({ text = "Scroll to explore" }: ScrollIn
           />
         </svg>
       </div>
-    </div>
+    </button>
   );
 }

@@ -2,6 +2,44 @@
 
 import { socialLinks } from '@/data/social'
 
+// Brand-specific glass styling for each platform
+const getBrandGlassStyle = (platform: string) => {
+  const styles = {
+    email: {
+      bg: 'bg-blue-500/15 border-blue-400/30 hover:bg-blue-500/25',
+      iconBg: 'bg-blue-500/20 group-hover:bg-blue-500/30',
+      iconColor: 'text-blue-200'
+    },
+    discord: {
+      bg: 'bg-indigo-500/15 border-indigo-400/30 hover:bg-indigo-500/25',
+      iconBg: 'bg-indigo-500/20 group-hover:bg-indigo-500/30',
+      iconColor: 'text-indigo-200'
+    },
+    youtube: {
+      bg: 'bg-red-500/15 border-red-400/30 hover:bg-red-500/25',
+      iconBg: 'bg-red-500/20 group-hover:bg-red-500/30',
+      iconColor: 'text-red-200'
+    },
+    reddit: {
+      bg: 'bg-orange-500/15 border-orange-400/30 hover:bg-orange-500/25',
+      iconBg: 'bg-orange-500/20 group-hover:bg-orange-500/30',
+      iconColor: 'text-orange-200'
+    },
+    instagram: {
+      bg: 'bg-pink-500/15 border-pink-400/30 hover:bg-pink-500/25',
+      iconBg: 'bg-pink-500/20 group-hover:bg-pink-500/30',
+      iconColor: 'text-pink-200'
+    },
+    tiktok: {
+      bg: 'bg-gray-500/15 border-gray-400/30 hover:bg-gray-500/25',
+      iconBg: 'bg-gray-500/20 group-hover:bg-gray-500/30',
+      iconColor: 'text-gray-200'
+    }
+  }
+  
+  return styles[platform as keyof typeof styles] || styles.email
+}
+
 export default function SocialLinks() {
   return (
     <section 
@@ -20,16 +58,18 @@ export default function SocialLinks() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {socialLinks.map((social) => (
-            <a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 hover:shadow-2xl group"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center text-white">
+          {socialLinks.map((social) => {
+            const brandStyle = getBrandGlassStyle(social.platform);
+            return (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${brandStyle.bg} backdrop-blur-xl rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group`}
+              >
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 rounded-xl ${brandStyle.iconBg} flex-shrink-0 group-hover:scale-110 transition-all duration-300 flex items-center justify-center ${brandStyle.iconColor}`}>
                   {social.platform === 'email' && (
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -70,7 +110,8 @@ export default function SocialLinks() {
                 </div>
               </div>
             </a>
-          ))}
+            );
+          })}
         </div>
         
       </div>

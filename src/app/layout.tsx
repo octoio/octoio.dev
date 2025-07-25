@@ -21,6 +21,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://octoio.dev"),
   title: "Octoio | Game Development & Creative Projects",
   description:
     "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
@@ -48,12 +49,21 @@ export const metadata: Metadata = {
     title: "Octoio | Game Development & Creative Projects",
     description:
       "Octoio's portfolio - Game development, creative projects, and technical exploration",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 512,
+        height: 512,
+        alt: "Octoio - Game Development & Creative Projects",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Octoio | Game Development & Creative Projects",
     description:
       "Octoio's portfolio - Game development, creative projects, and technical exploration",
+    images: ["/favicon.ico"],
   },
 };
 
