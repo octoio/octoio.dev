@@ -27,7 +27,8 @@ export default function CodeHighlighter() {
           bash,
           css,
           xml,
-          markdown
+          markdown,
+          yaml
         ] = await Promise.all([
           import('highlight.js/lib/languages/javascript'),
           import('highlight.js/lib/languages/typescript'),
@@ -37,7 +38,8 @@ export default function CodeHighlighter() {
           import('highlight.js/lib/languages/bash'),
           import('highlight.js/lib/languages/css'),
           import('highlight.js/lib/languages/xml'),
-          import('highlight.js/lib/languages/markdown')
+          import('highlight.js/lib/languages/markdown'),
+          import('highlight.js/lib/languages/yaml')
         ])
 
         hljs.default.registerLanguage('javascript', javascript.default)
@@ -50,6 +52,8 @@ export default function CodeHighlighter() {
         hljs.default.registerLanguage('html', xml.default)
         hljs.default.registerLanguage('markdown', markdown.default)
         hljs.default.registerLanguage('md', markdown.default)
+        hljs.default.registerLanguage('yaml', yaml.default)
+        hljs.default.registerLanguage('mermaid', yaml.default) // Use YAML highlighting for Mermaid syntax
 
         // Find all code blocks and highlight them
         const codeBlocks = document.querySelectorAll('pre code[class*="language-"]')

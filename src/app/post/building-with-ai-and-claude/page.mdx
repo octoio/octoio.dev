@@ -2,6 +2,7 @@ import TerminalDisplay from "@/components/hero/TerminalDisplay";
 import Search from "@/components/Search";
 import TechStackRotator from "@/components/hero/TechStackRotator";
 import PostHeader from "@/components/PostHeader";
+import MermaidDiagram from "@/components/MermaidDiagram";
 
 export const metadata = {
   title: "Building This Website: My AI-Powered Development Experience",
@@ -134,6 +135,25 @@ This innocent-looking component took an embarrassing amount of time to create. W
 Each request took Claude seconds to implement, so I kept going. The traditional friction of manual coding usually forces you to accept "good enough" - but with AI, that natural stopping point disappears.
 
 **The lesson**: AI amplifies both your productivity AND your perfectionist tendencies. Sometimes you need to consciously step back and ask "is this actually improving the user experience, or am I just nitpicking?"
+
+This perfectionist loop can be visualized as:
+
+<MermaidDiagram chart={`
+graph TD
+    A[Feature Working] --> B[Small Improvement Idea]
+    B --> C[Ask Claude to Implement]
+    C --> D[Implemented in Seconds]
+    D --> E[Notice Another Small Issue]
+    E --> B
+    
+    F[Conscious Decision] --> G[Stop & Ship]
+    E -.->|Break the loop| F
+    
+    style A fill:#e8f5e8
+    style G fill:#e8f5e8
+    style E fill:#ffebee
+    style F fill:#fff3e0
+`} />
 
 ## The Importance of Domain Knowledge
 
