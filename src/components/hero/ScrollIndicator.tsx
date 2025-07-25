@@ -1,26 +1,26 @@
+"use client";
+
 interface ScrollIndicatorProps {
   text?: string;
 }
 
-export default function ScrollIndicator({ text = "Scroll to explore" }: ScrollIndicatorProps) {
+export default function ScrollIndicator({
+  text = "Scroll to explore",
+}: ScrollIndicatorProps) {
   const scrollToNextSection = () => {
-    // Find the next section after hero (which should be LatestVideo section)
-    const heroSection = document.querySelector('section');
-    if (heroSection) {
-      const nextSection = heroSection.nextElementSibling as HTMLElement;
-      if (nextSection) {
-        nextSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
+    const postsSection = document.querySelector("#posts");
+    if (postsSection) {
+      postsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
   return (
-    <button 
+    <button
       onClick={scrollToNextSection}
-      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group transition-colors duration-300 hover:text-white bg-transparent border-none"
+      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group transition-colors duration-300 hover:text-white bg-transparent border-none z-50"
       aria-label="Scroll to next section"
     >
       <div className="flex flex-col items-center text-white/70 group-hover:text-white/90">

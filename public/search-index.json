@@ -1,7 +1,7 @@
 [
   {
     "type": "project",
-    "title": "Fey Data Pipeline (OCaml)",
+    "title": "Fey Data Pipeline",
     "description": "OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.",
     "url": "/projects#1",
     "tags": [
@@ -14,7 +14,7 @@
     "featured": true,
     "data": {
       "id": "1",
-      "title": "Fey Data Pipeline (OCaml)",
+      "title": "Fey Data Pipeline",
       "description": "OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.",
       "technologies": [
         "OCaml",
@@ -30,8 +30,8 @@
   },
   {
     "type": "project",
-    "title": "Fey Console (React/TypeScript)",
-    "description": "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing with 1200+ tests.",
+    "title": "Fey Console",
+    "description": "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing.",
     "url": "/projects#2",
     "tags": [
       "React",
@@ -44,8 +44,8 @@
     "featured": true,
     "data": {
       "id": "2",
-      "title": "Fey Console (React/TypeScript)",
-      "description": "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing with 1200+ tests.",
+      "title": "Fey Console",
+      "description": "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing.",
       "technologies": [
         "React",
         "TypeScript",
@@ -62,26 +62,32 @@
   {
     "type": "project",
     "title": "Voice Viewer",
-    "description": "Audio visualization tool for analyzing and displaying voice patterns and audio data.",
+    "description": "Professional audio visualizer for faceless content creators and developers. Features live microphone mode with real-time parameter tuning, multiple visualizers (waveform, spectrum, circular), and professional themes perfect for devlogs and tutorials.",
     "url": "/projects#3",
     "tags": [
-      "TypeScript",
-      "Web Audio API",
-      "Canvas"
+      "Python",
+      "OpenCV",
+      "LibROSA",
+      "MoviePy",
+      "PyAudio",
+      "NumPy"
     ],
-    "featured": false,
+    "featured": true,
     "data": {
       "id": "3",
       "title": "Voice Viewer",
-      "description": "Audio visualization tool for analyzing and displaying voice patterns and audio data.",
+      "description": "Professional audio visualizer for faceless content creators and developers. Features live microphone mode with real-time parameter tuning, multiple visualizers (waveform, spectrum, circular), and professional themes perfect for devlogs and tutorials.",
       "technologies": [
-        "TypeScript",
-        "Web Audio API",
-        "Canvas"
+        "Python",
+        "OpenCV",
+        "LibROSA",
+        "MoviePy",
+        "PyAudio",
+        "NumPy"
       ],
       "url": "https://github.com/octoio/voice-viewer",
       "displayUrl": "View on GitHub",
-      "featured": false
+      "featured": true
     }
   },
   {
@@ -119,7 +125,7 @@
       "Manim",
       "Animation"
     ],
-    "featured": true,
+    "featured": false,
     "data": {
       "id": "5",
       "title": "Fey Manim Animations",
@@ -131,7 +137,7 @@
       ],
       "url": "https://github.com/octoio/fey-manim",
       "displayUrl": "View on GitHub",
-      "featured": true
+      "featured": false
     }
   },
   {

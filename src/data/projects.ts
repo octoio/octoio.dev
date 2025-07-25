@@ -3,7 +3,7 @@ import { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Fey Data Pipeline (OCaml)",
+    title: "Fey Data Pipeline",
     description:
       "OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.",
     technologies: ["OCaml", "ATD", "Dune", "JSON", "C#"],
@@ -13,10 +13,17 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    title: "Fey Console (React/TypeScript)",
+    title: "Fey Console",
     description:
-      "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing with 1200+ tests.",
-    technologies: ["React", "TypeScript", "Vite", "Ant Design", "Zustand", "Vitest"],
+      "Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Ant Design",
+      "Zustand",
+      "Vitest",
+    ],
     url: "https://github.com/octoio/fey-console",
     displayUrl: "View on GitHub",
     featured: true,
@@ -25,11 +32,18 @@ export const projects: Project[] = [
     id: "3",
     title: "Voice Viewer",
     description:
-      "Audio visualization tool for analyzing and displaying voice patterns and audio data.",
-    technologies: ["TypeScript", "Web Audio API", "Canvas"],
+      "Professional audio visualizer for faceless content creators and developers. Features live microphone mode with real-time parameter tuning, multiple visualizers (waveform, spectrum, circular), and professional themes perfect for devlogs and tutorials.",
+    technologies: [
+      "Python",
+      "OpenCV",
+      "LibROSA",
+      "MoviePy",
+      "PyAudio",
+      "NumPy",
+    ],
     url: "https://github.com/octoio/voice-viewer",
     displayUrl: "View on GitHub",
-    featured: false,
+    featured: true,
   },
   {
     id: "4",
@@ -49,6 +63,6 @@ export const projects: Project[] = [
     technologies: ["Python", "Manim", "Animation"],
     url: "https://github.com/octoio/fey-manim",
     displayUrl: "View on GitHub",
-    featured: true,
+    featured: false,
   },
 ];

@@ -39,9 +39,9 @@ export default function About() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            I&apos;m Octoio - a versatile developer who discovered the magic of programming in 2016 and never looked back. 
-            My passion lies in building experiences that bring joy to people, from pandemic-era connection games 
-            to ambitious multiplayer adventures. Coding is both my profession and my playground.
+            I&apos;m Octoio - I discovered programming in 2016 and haven&apos;t looked back since. 
+            I love building experiences that bring joy to people, from pandemic-era connection games 
+            to the multiplayer game I&apos;m working on now. Coding is both my profession and my playground.
           </p>
         </div>
 
