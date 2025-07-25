@@ -34,6 +34,18 @@ export default function PostCard({ post }: PostCardProps) {
           Featured
         </div>
       )}
+
+      {post.thumbnail && (
+        <div className="mb-4 rounded-lg overflow-hidden">
+          <img
+            src={post.thumbnail}
+            alt={post.title}
+            className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      )}
+
       <h3 className="text-2xl font-semibold mb-4 text-slate-800 leading-tight">
         {post.title}
       </h3>

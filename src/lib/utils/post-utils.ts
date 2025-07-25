@@ -59,6 +59,7 @@ export function parsePostMetadataFromContent(
     const publishedAtMatch = metadataString.match(/publishedAt:\s*"([^"]+)"/);
     const readTimeMatch = metadataString.match(/readTime:\s*(\d+)/);
     const tagsMatch = metadataString.match(/tags:\s*\[(.*?)\]/);
+    const thumbnailMatch = metadataString.match(/thumbnail:\s*"([^"]+)"/);
 
     if (!titleMatch || !excerptMatch || !publishedAtMatch || !readTimeMatch) {
       console.warn(`Incomplete metadata in post: ${slug}`);
@@ -77,6 +78,7 @@ export function parsePostMetadataFromContent(
       readTime: parseInt(readTimeMatch[1]),
       tags,
       state: parsePostState(metadataString),
+      thumbnail: thumbnailMatch ? thumbnailMatch[1] : undefined,
     };
   } catch (error) {
     console.error(`Error parsing metadata for post ${slug}:`, error);
@@ -113,6 +115,7 @@ export async function loadPostMetadataFromImport(
       readTime: metadata.readTime,
       tags: metadata.tags || [],
       state,
+      thumbnail: metadata.thumbnail,
     };
   } catch (error) {
     console.error(`Error loading metadata for post ${slug}:`, error);

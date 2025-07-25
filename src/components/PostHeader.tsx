@@ -19,7 +19,19 @@ export default function PostHeader({ metadata }: PostHeaderProps) {
         <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 leading-tight">
           {metadata.title}
         </h1>
-        <p className="text-lg text-slate-600 italic mb-4">{metadata.excerpt}</p>
+        <p className="text-lg text-slate-600 italic mb-6">{metadata.excerpt}</p>
+
+        {metadata.thumbnail && (
+          <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
+            <img
+              src={metadata.thumbnail}
+              alt={metadata.title}
+              className="w-full h-auto max-h-96 object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
+
         <div className="flex items-center gap-4 mb-6 text-slate-600 text-sm">
           <span>
             {new Date(metadata.publishedAt).toLocaleDateString("en-US", {

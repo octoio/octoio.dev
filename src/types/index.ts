@@ -24,6 +24,7 @@ export interface PostMetadata {
   readTime: number;
   tags: string[];
   state: PostState;
+  thumbnail?: string;
 }
 
 export interface Post extends PostMetadata {
@@ -43,6 +44,7 @@ export interface PostFromFileSystem {
   readTime: number;
   tags: string[];
   state: PostState;
+  thumbnail?: string;
 }
 
 export interface SocialLink {

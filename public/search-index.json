@@ -175,7 +175,7 @@
     "description": "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
     "url": "/post/building-with-ai-and-claude/",
     "tags": [],
-    "featured": true,
+    "featured": false,
     "data": {
       "slug": "building-with-ai-and-claude",
       "title": "Building This Website: My AI-Powered Development Experience",
@@ -183,7 +183,60 @@
       "publishedAt": "2025-07-25",
       "readTime": 5,
       "tags": [],
-      "state": "featured"
+      "state": "published",
+      "thumbnail": "/thumbnails/building-with-ai-and-claude.png"
+    }
+  },
+  {
+    "type": "post",
+    "title": "Building a Multi-Language Game Development Ecosystem",
+    "description": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
+    "url": "/post/multi-language-game-ecosystem/",
+    "tags": [
+      "Game Development",
+      "OCaml",
+      "TypeScript",
+      "Unity"
+    ],
+    "featured": false,
+    "data": {
+      "slug": "multi-language-game-ecosystem",
+      "title": "Building a Multi-Language Game Development Ecosystem",
+      "excerpt": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
+      "publishedAt": "2025-07-20",
+      "readTime": 8,
+      "tags": [
+        "Game Development",
+        "OCaml",
+        "TypeScript",
+        "Unity"
+      ],
+      "state": "published"
+    }
+  },
+  {
+    "type": "post",
+    "title": "The Power of Type Safety in Game Data Pipelines",
+    "description": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
+    "url": "/post/type-safety-game-pipelines/",
+    "tags": [
+      "Type Safety",
+      "OCaml",
+      "Game Development"
+    ],
+    "featured": false,
+    "data": {
+      "slug": "type-safety-game-pipelines",
+      "title": "The Power of Type Safety in Game Data Pipelines",
+      "excerpt": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
+      "publishedAt": "2025-07-20",
+      "readTime": 6,
+      "tags": [
+        "Type Safety",
+        "OCaml",
+        "Game Development"
+      ],
+      "state": "published"
     }
   },
   {
@@ -314,7 +367,7 @@
       "description": "🚀 I'm leaping into the unknown! Welcome to my first devlog for Fey (fæge), an online coop dungeon crawler RPG roguelite, from its ideation to its creation.\n\nThe devlogs for the game will be bite-sized to cover the different systems.\n\nLinks\n---------------------------------\nFey's Official Discord: https://discord.gg/3FxWdFvKYU\nTikTok Account: https://www.tiktok.com/@octoio_dev\nReddit Account: https://www.reddit.com/r/octoio\n\nMusic\n---------------------------------\nMedieval Lofi https://www.youtube.com/channel/UCNol4Qo1VfTFKbU4fZxOU8w\nhttps://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮\n\nChapters\n---------------------------------\n0:00 Introduction\n1:03 Fey\n1:41 Inspiration\n3:48 Plannification\n4:24 Iterations\n6:36 Current State\n7:29 Outro",
       "publishedAt": "2023-12-27T18:41:24Z",
       "thumbnailUrl": "https://i.ytimg.com/vi/qpSnns2_SBg/maxresdefault.jpg",
-      "viewCount": "2684",
+      "viewCount": "2683",
       "duration": "PT7M46S",
       "tags": [
         "roguelike",
