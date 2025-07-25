@@ -2,74 +2,26 @@
 
 import Link from 'next/link'
 import { projects } from '@/data/projects'
-import { Project } from '@/types'
-
-interface ProjectCardComponentProps {
-  project: Project
-}
-
-function ProjectCardComponent({ project }: ProjectCardComponentProps) {
-  return (
-    <div className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-      project.featured ? 'border-2 border-indigo-500' : 'border border-slate-200'
-    }`}>
-      {project.featured && (
-        <div className="bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-4 inline-block">
-          Featured
-        </div>
-      )}
-      <h3 className="text-2xl font-semibold mb-4 text-slate-800">{project.title}</h3>
-      <p className="text-slate-600 leading-relaxed mb-6">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.technologies.map((tech) => (
-          <span key={tech} className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">
-            {tech}
-          </span>
-        ))}
-      </div>
-      <div className="flex gap-4">
-        {project.githubUrl && (
-          <a 
-            href={project.githubUrl} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-indigo-500 no-underline font-medium transition-colors duration-200 hover:text-indigo-600"
-          >
-            GitHub →
-          </a>
-        )}
-        {project.liveUrl && (
-          <a 
-            href={project.liveUrl} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-indigo-500 no-underline font-medium transition-colors duration-200 hover:text-indigo-600"
-          >
-            Live Demo →
-          </a>
-        )}
-      </div>
-    </div>
-  )
-}
+import ProjectCard from '@/components/ProjectCard'
+import { COMMON_STYLES } from '@/styles/constants'
 
 export default function Projects() {
   const featuredProjects = projects.filter(p => p.featured)
 
   return (
-    <section id="projects" className="py-20 px-8 bg-slate-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-slate-800">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <section id="projects" className={COMMON_STYLES.section}>
+      <div className={COMMON_STYLES.container}>
+        <h2 className={COMMON_STYLES.sectionTitle}>Featured Projects</h2>
+        <div className={`${COMMON_STYLES.gridLayout} mb-12`}>
           {featuredProjects.map((project) => (
-            <ProjectCardComponent key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
         
         <div className="text-center mt-8">
           <Link 
             href="/projects" 
-            className="text-indigo-500 no-underline font-medium text-lg transition-colors duration-200 hover:text-indigo-600"
+            className={`${COMMON_STYLES.link} text-lg`}
           >
             View All Projects →
           </Link>
