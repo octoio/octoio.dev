@@ -6,8 +6,25 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const handleCardClick = () => {
+    if (project.url) {
+      window.open(project.url, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   return (
-    <div className={getCardStyles(project.featured)}>
+    <div 
+      className={`${getCardStyles(project.featured)} cursor-pointer`}
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          handleCardClick()
+        }
+      }}
+    >
       {project.featured && (
         <div className={COMMON_STYLES.featuredBadge}>
           Featured
@@ -29,6 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             target="_blank" 
             rel="noopener noreferrer"
             className={COMMON_STYLES.link}
+            onClick={(e) => e.stopPropagation()} // Prevent double navigation
           >
             {project.displayUrl || "View Project"} →
           </a>
@@ -39,6 +57,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             target="_blank" 
             rel="noopener noreferrer"
             className={COMMON_STYLES.link}
+            onClick={(e) => e.stopPropagation()} // Prevent double navigation
           >
             Live Demo →
           </a>
