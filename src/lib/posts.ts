@@ -118,9 +118,25 @@ export async function getAllPostSlugs(): Promise<string[]> {
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
-  // Verify each directory has a page.mdx file
-  return postDirs.filter((dir) => {
-    const mdxPath = path.join(postsDirectory, dir, "page.mdx");
-    return fs.existsSync(mdxPath);
-  });
+  // Filter to only include published posts
+  const publishedSlugs = await Promise.all(
+    postDirs.map(async (dir) => {
+      const mdxPath = path.join(postsDirectory, dir, "page.mdx");
+
+      if (!fs.existsSync(mdxPath)) {
+        return null;
+      }
+
+      try {
+        const { metadata } = await import(`@/app/post/${dir}/page.mdx`);
+        const published = metadata.published ?? true;
+        return published ? dir : null;
+      } catch (error) {
+        console.error(`Error loading metadata for post ${dir}:`, error);
+        return null;
+      }
+    })
+  );
+
+  return publishedSlugs.filter((slug): slug is string => slug !== null);
 }

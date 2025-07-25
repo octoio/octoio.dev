@@ -124,7 +124,9 @@ function getPostsFromFileSystem(): PostFromFileSystem[] {
         return null;
       }
     })
-    .filter((post): post is PostFromFileSystem => post !== null && post.published);
+    .filter(
+      (post): post is PostFromFileSystem => post !== null && post.published
+    );
 
   return posts.sort(
     (a, b) =>

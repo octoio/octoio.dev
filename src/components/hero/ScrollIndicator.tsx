@@ -20,7 +20,7 @@ export default function ScrollIndicator({
   return (
     <button
       onClick={scrollToNextSection}
-      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group transition-colors duration-300 hover:text-white bg-transparent border-none z-50"
+      className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group transition-colors duration-300 hover:text-white bg-transparent border-none z-50"
       aria-label="Scroll to next section"
     >
       <div className="flex flex-col items-center text-white/70 group-hover:text-white/90">

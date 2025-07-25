@@ -18,9 +18,9 @@ export default function Hero() {
       id="hero"
       className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-700"
     >
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-8">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-8 pb-20 md:pb-8">
         <div className="max-w-6xl w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left side - Main content */}
             <HeroContent isVisible={isVisible}>
               <TechStackRotator />
