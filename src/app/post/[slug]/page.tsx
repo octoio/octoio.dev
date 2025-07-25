@@ -33,11 +33,6 @@ export async function generateMetadata({ params }: PostPageProps) {
     };
   }
 
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://octoio.dev"
-      : "http://localhost:3000";
-
   return {
     title: `${post.title} | Octoio`,
     description: post.excerpt,
@@ -47,17 +42,10 @@ export async function generateMetadata({ params }: PostPageProps) {
       type: "article",
       publishedTime: post.publishedAt,
       tags: post.tags,
-      url: `${baseUrl}/post/${slug}`,
+      url: `/post/${slug}/`,
       siteName: "Octoio",
       ...(post.thumbnail && {
-        images: [
-          {
-            url: post.thumbnail.startsWith('http') ? post.thumbnail : `${baseUrl}${post.thumbnail}`,
-            width: 1200,
-            height: 630,
-            alt: post.title,
-          },
-        ],
+        images: [post.thumbnail],
       }),
     },
     twitter: {
@@ -65,7 +53,7 @@ export async function generateMetadata({ params }: PostPageProps) {
       title: post.title,
       description: post.excerpt,
       ...(post.thumbnail && {
-        images: [post.thumbnail.startsWith('http') ? post.thumbnail : `${baseUrl}${post.thumbnail}`],
+        images: [post.thumbnail],
       }),
     },
   };

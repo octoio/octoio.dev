@@ -22,7 +22,11 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://octoio.dev"),
+  metadataBase: new URL(
+    process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
   title: "Octoio | Game Development & Creative Projects",
   description:
     "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
@@ -45,26 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://octoio.dev",
     siteName: "Octoio",
-    title: "Octoio | Game Development & Creative Projects",
-    description:
-      "Octoio's portfolio - Game development, creative projects, and technical exploration",
-    images: [
-      {
-        url: "/favicon.ico",
-        width: 512,
-        height: 512,
-        alt: "Octoio - Game Development & Creative Projects",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Octoio | Game Development & Creative Projects",
-    description:
-      "Octoio's portfolio - Game development, creative projects, and technical exploration",
-    images: ["/favicon.ico"],
   },
 };
 
