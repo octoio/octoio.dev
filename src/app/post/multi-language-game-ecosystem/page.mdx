@@ -1,13 +1,16 @@
-import PostHeader from '@/components/PostHeader'
+import PostHeader from "@/components/PostHeader";
+import MermaidDiagram from "@/components/MermaidDiagram";
 
 export const metadata = {
   title: "Building a Multi-Language Game Development Ecosystem",
-  excerpt: "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
+  excerpt:
+    "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
   publishedAt: "2025-07-20",
   readTime: 8,
   tags: ["Game Development", "OCaml", "TypeScript", "Unity"],
-  featured: true
-}
+  featured: false,
+  published: false,
+};
 
 <PostHeader metadata={metadata} />
 
@@ -47,6 +50,7 @@ let validate_entity_references entities entity =
 ```
 
 OCaml provides:
+
 - **Strong typing** that catches errors at compile time
 - **Pattern matching** for robust data processing
 - **Functional programming** paradigms that make data transformations reliable
@@ -57,23 +61,24 @@ A React-based management interface for creating and editing game entities:
 
 ```typescript
 interface EntityDefinition {
-  id: string
-  entityType: EntityType
-  properties: Record<string, unknown>
-  references: string[]
+  id: string;
+  entityType: EntityType;
+  properties: Record<string, unknown>;
+  references: string[];
 }
 
 const validateEntityReferences = (
   entities: EntityDefinition[],
   entity: EntityDefinition
 ): boolean => {
-  return entity.references.every(refId =>
-    entities.some(e => e.id === refId)
-  )
-}
+  return entity.references.every((refId) =>
+    entities.some((e) => e.id === refId)
+  );
+};
 ```
 
 The TypeScript interface provides:
+
 - **Type-safe** entity editing with IntelliSense
 - **Real-time validation** of entity relationships
 - **Modern UI** with React and Ant Design
@@ -98,26 +103,53 @@ namespace Octoio.Fey.Data.Dto
 
 ## The Data Flow
 
+The Fey ecosystem follows a clear data flow from design to runtime:
+
+<MermaidDiagram
+  chart={`
+flowchart LR
+    A[🎨 Designer] --> B[fey-console<br/>TypeScript]
+    B --> C[📝 JSON Entities]
+    C --> D[fey-data<br/>OCaml Pipeline]
+    D --> E[✅ Validation]
+    D --> F[🔧 C# Generation]
+    F --> G[fey-game-mock<br/>Unity]
+    G --> H[🎮 Runtime Game]
+    
+    style A fill:#e0f2fe
+    style B fill:#dbeafe
+    style D fill:#fef3c7
+    style F fill:#fce7f3
+    style G fill:#dcfce7
+    style H fill:#f0fdf4
+`}
+/>
+
 1. **Create/Edit**: Designers use the TypeScript console to define game entities
-2. **Process**: OCaml pipeline validates data and generates C# code  
+2. **Process**: OCaml pipeline validates data and generates C# code
 3. **Integrate**: Unity automatically picks up generated classes and JSON data
 4. **Runtime**: Game loads type-safe entity definitions
 
 ## Key Benefits
 
 ### Type Safety Across Languages
+
 Each language's type system catches different classes of errors:
+
 - **OCaml**: Compile-time guarantees for data processing
 - **TypeScript**: Editor support and runtime safety for UI
 - **C#**: Unity integration with IntelliSense
 
 ### Automated Code Generation
+
 No more manual synchronization between data definitions and game code. Changes in one place automatically propagate through the entire system.
 
 ### Developer Experience
+
 Each tool is optimized for its use case:
+
 - **OCaml** for robust data processing
-- **React** for intuitive editing interfaces  
+- **React** for intuitive editing interfaces
 - **Unity** for game development
 
 ## Technical Deep Dive
@@ -151,12 +183,15 @@ let generate_csharp_class (type_def : Atd.type_def) =
 ## Lessons Learned
 
 ### Choose the Right Tool for the Job
+
 - **OCaml**: Excellent for data processing where correctness is critical
 - **TypeScript**: Perfect for UI development with type safety
 - **C#**: Natural fit for Unity integration
 
 ### Invest in Developer Tooling
+
 The time spent building this ecosystem has paid dividends in:
+
 - **Reduced bugs** from data inconsistencies
 - **Faster iteration** cycles for designers
 - **Better collaboration** between programmers and designers
@@ -164,6 +199,7 @@ The time spent building this ecosystem has paid dividends in:
 ## What's Next?
 
 The system continues to evolve:
+
 - **Hot reloading** of entity definitions in Unity
 - **Visual scripting** integration for non-programmers
 - **Performance optimizations** for large datasets
@@ -176,4 +212,4 @@ The key is not to force one language to do everything, but to let each language 
 
 ---
 
-*Have questions about the Fey ecosystem? Feel free to reach out via any of the social links below!*
+_Have questions about the Fey ecosystem? Feel free to reach out via any of the social links below!_

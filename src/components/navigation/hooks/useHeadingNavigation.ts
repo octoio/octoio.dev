@@ -19,7 +19,9 @@ export function useHeadingNavigation(): UseHeadingNavigationReturn {
 
   useEffect(() => {
     const extractHeadings = () => {
-      const headingElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      const headingElements = document.querySelectorAll(
+        "h1, h2, h3, h4, h5, h6"
+      );
       const extractedHeadings: Heading[] = [];
 
       headingElements.forEach((element, index) => {
@@ -65,9 +67,9 @@ export function useHeadingNavigation(): UseHeadingNavigationReturn {
 
       for (const heading of extractedHeadings) {
         if (!heading.element) continue;
-        
+
         const headingTop = heading.element.offsetTop;
-        
+
         if (headingTop <= viewportTop) {
           activeHeading = heading;
         } else {
@@ -96,8 +98,8 @@ export function useHeadingNavigation(): UseHeadingNavigationReturn {
           const element = document.getElementById(hash);
           if (element) {
             element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
+              behavior: "smooth",
+              block: "start",
             });
             setActiveSection(hash);
           }
@@ -110,13 +112,13 @@ export function useHeadingNavigation(): UseHeadingNavigationReturn {
       handleHashChange();
     }
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("hashchange", handleHashChange);
 
     return () => {
       clearTimeout(setupTimeout);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
 
@@ -124,9 +126,9 @@ export function useHeadingNavigation(): UseHeadingNavigationReturn {
     const element = document.getElementById(headingId);
     if (element) {
       setActiveSection(headingId);
-      
+
       // Update URL hash without triggering a page reload
-      window.history.pushState(null, '', `#${headingId}`);
+      window.history.pushState(null, "", `#${headingId}`);
 
       element.scrollIntoView({
         behavior: "smooth",

@@ -9,13 +9,13 @@ interface NavigationDotProps {
   children?: React.ReactNode;
 }
 
-export default function NavigationDot({ 
-  id, 
-  label, 
-  isActive, 
-  onClick, 
+export default function NavigationDot({
+  id,
+  label,
+  isActive,
+  onClick,
   showConnectionLine,
-  children 
+  children,
 }: NavigationDotProps) {
   return (
     <li className="relative flex items-center justify-end transition-all duration-300 group">
@@ -28,7 +28,7 @@ export default function NavigationDot({
             : "border-slate-400/30 bg-slate-50/80 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] hover:bg-indigo-500/15"
         }`}
       />
-      
+
       {/* Connection line */}
       {showConnectionLine && (
         <div
@@ -39,7 +39,7 @@ export default function NavigationDot({
           }`}
         />
       )}
-      
+
       {children}
     </li>
   );

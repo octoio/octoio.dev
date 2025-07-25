@@ -6,12 +6,20 @@ import MermaidDiagram from "@/components/MermaidDiagram";
 
 export const metadata = {
   title: "Building This Website: My AI-Powered Development Experience",
-  excerpt: "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
+  excerpt:
+    "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
   publishedAt: "2025-07-25",
   readTime: 5,
-  tags: ["AI Development", "Next.js", "TypeScript", "Claude", "Web Development"],
-  featured: true
-}
+  tags: [
+    "AI Development",
+    "Next.js",
+    "TypeScript",
+    "Claude",
+    "Web Development",
+  ],
+  featured: true,
+  published: true,
+};
 
 <PostHeader metadata={metadata} />
 
@@ -24,8 +32,9 @@ When I set out to build this portfolio website, I knew I wanted something specia
 Working with Claude feels fundamentally different from traditional coding. Instead of wrestling with implementation details, I found myself in a strategic role - defining features, iterating on design, and focusing on the user experience. Claude handled the heavy lifting of turning ideas into working code.
 
 It's like having a developer who:
+
 - Never gets tired or frustrated
-- Implements features instantly 
+- Implements features instantly
 - Always follows best practices
 - Can context-switch between any technology stack
 - Provides suggestions and catches potential issues
@@ -35,7 +44,9 @@ It's like having a developer who:
 The website showcases several interesting features that emerged from our collaborative process:
 
 ### Interactive Terminal
+
 One of my favorite additions was the terminal component. I mentioned wanting something unique for the hero section, and Claude suggested a fully functional terminal simulator with:
+
 - Virtual filesystem with hidden easter eggs
 - Tab completion and command history
 - Custom commands including a `nav` command for site navigation
@@ -46,7 +57,9 @@ Try it yourself in the terminal below:
 <TerminalDisplay isVisible={true} autoFocus={false} />
 
 ### Comprehensive Search
+
 The search functionality evolved from a simple idea into a sophisticated system:
+
 - Fuzzy search across projects, posts, videos, and social links
 - Keyboard shortcuts (⌘K, /) for quick access
 - Real-time YouTube integration for devlog content
@@ -54,9 +67,8 @@ The search functionality evolved from a simple idea into a sophisticated system:
 
 Try the search below, or use ⌘K anywhere on the site:
 
-<Search />
-
 ### Personal Journey Integration
+
 We spent time making the About section authentic rather than generic, incorporating my actual timeline from discovering programming in 2016 to creating the Octoio persona and launching devlogs.
 
 ### The Power of MDX
@@ -107,6 +119,7 @@ I found AI development particularly powerful for:
 ## The Result: Probably Overkill
 
 Looking at the final result, I definitely went overboard. A simple portfolio became:
+
 - A full Next.js 15 application with static site generation
 - Interactive terminal with virtual filesystem
 - Comprehensive search system
@@ -138,7 +151,8 @@ Each request took Claude seconds to implement, so I kept going. The traditional 
 
 This perfectionist loop can be visualized as:
 
-<MermaidDiagram chart={`
+<MermaidDiagram
+  chart={`
 graph TD
     A[Feature Working] --> B[Small Improvement Idea]
     B --> C[Ask Claude to Implement]
@@ -153,7 +167,8 @@ graph TD
     style G fill:#e8f5e8
     style E fill:#ffebee
     style F fill:#fff3e0
-`} />
+`}
+/>
 
 ## The Importance of Domain Knowledge
 
@@ -180,4 +195,4 @@ The website continues to evolve based on feedback and new ideas. That's perhaps 
 
 ---
 
-*The source code for this website is available on [GitHub](https://github.com/octoio/octoio.dev). Feel free to explore the implementation or use it as inspiration for your own AI-assisted development projects.*
+_The source code for this website is available on [GitHub](https://github.com/octoio/octoio.dev). Feel free to explore the implementation or use it as inspiration for your own AI-assisted development projects._

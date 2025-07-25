@@ -1,15 +1,15 @@
-import Hero from '@/components/Hero'
-import Projects from '@/components/Projects'
-import Posts from '@/components/Posts'
-import LatestVideo from '@/components/LatestVideo'
-import About from '@/components/About'
-import SocialLinks from '@/components/SocialLinks'
-import Footer from '@/components/Footer'
-import PageNavigation from '@/components/PageNavigation'
-import { getPostSummaries } from '@/lib/posts'
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
+import Posts from "@/components/Posts";
+import LatestVideo from "@/components/LatestVideo";
+import About from "@/components/About";
+import SocialLinks from "@/components/SocialLinks";
+import Footer from "@/components/Footer";
+import PageNavigation from "@/components/PageNavigation";
+import { getPostSummaries } from "@/lib/posts";
 
 export default async function Home() {
-  const posts = await getPostSummaries()
+  const posts = await getPostSummaries();
 
   return (
     <>
@@ -24,5 +24,5 @@ export default async function Home() {
       </main>
       <PageNavigation />
     </>
-  )
+  );
 }

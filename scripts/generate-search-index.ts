@@ -37,7 +37,18 @@ interface YouTubeVideo {
   tags: string[];
 }
 
-function getPostsFromFileSystem() {
+interface PostFromFileSystem {
+  slug: string;
+  title: string;
+  excerpt: string;
+  publishedAt: string;
+  readTime: number;
+  tags: string[];
+  featured: boolean;
+  published: boolean;
+}
+
+function getPostsFromFileSystem(): PostFromFileSystem[] {
   const postsDirectory = path.join(process.cwd(), "src/app/post");
 
   if (!fs.existsSync(postsDirectory)) {
@@ -50,7 +61,7 @@ function getPostsFromFileSystem() {
     .map((dirent) => dirent.name);
 
   const posts = postDirs
-    .map((postDir) => {
+    .map((postDir): PostFromFileSystem | null => {
       const slug = postDir;
       const mdxPath = path.join(postsDirectory, postDir, "page.mdx");
 
@@ -80,6 +91,9 @@ function getPostsFromFileSystem() {
         const readTimeMatch = metadataString.match(/readTime:\s*(\d+)/);
         const tagsMatch = metadataString.match(/tags:\s*\[(.*?)\]/);
         const featuredMatch = metadataString.match(/featured:\s*(true|false)/);
+        const publishedMatch = metadataString.match(
+          /published:\s*(true|false)/
+        );
 
         if (
           !titleMatch ||
@@ -103,13 +117,14 @@ function getPostsFromFileSystem() {
           readTime: parseInt(readTimeMatch[1]),
           tags,
           featured: featuredMatch ? featuredMatch[1] === "true" : false,
+          published: publishedMatch ? publishedMatch[1] === "true" : true,
         };
       } catch (error) {
         console.error(`Error reading ${mdxPath}:`, error);
         return null;
       }
     })
-    .filter((post) => post !== null);
+    .filter((post): post is PostFromFileSystem => post !== null && post.published);
 
   return posts.sort(
     (a, b) =>
@@ -294,7 +309,8 @@ async function generateSearchIndex() {
       {
         type: "page" as const,
         title: "Home",
-        description: "Octoio's portfolio - Game development, creative projects, and technical exploration",
+        description:
+          "Octoio's portfolio - Game development, creative projects, and technical exploration",
         url: "/",
         tags: ["home", "portfolio", "octoio"],
         featured: true,
@@ -303,7 +319,8 @@ async function generateSearchIndex() {
       {
         type: "page" as const,
         title: "About Me",
-        description: "Learn about my journey from discovering programming in 2016 to creating the Octoio persona and developing games",
+        description:
+          "Learn about my journey from discovering programming in 2016 to creating the Octoio persona and developing games",
         url: "/#about",
         tags: ["about", "journey", "biography", "developer"],
         featured: false,
@@ -312,7 +329,8 @@ async function generateSearchIndex() {
       {
         type: "page" as const,
         title: "Connect & Social Links",
-        description: "Get in touch via email, Discord, YouTube, and other social platforms",
+        description:
+          "Get in touch via email, Discord, YouTube, and other social platforms",
         url: "/#connect",
         tags: ["contact", "social", "discord", "youtube", "email"],
         featured: false,

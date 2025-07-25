@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from "react";
 
 interface TerminalContentProps {
   completedLines: string[];
@@ -13,7 +13,7 @@ export default function TerminalContent({
   currentText,
   isTyping,
   className = "font-mono text-sm space-y-2 h-64 min-h-64 max-h-64 overflow-y-auto pr-2 custom-scroll",
-  children
+  children,
 }: TerminalContentProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -26,12 +26,14 @@ export default function TerminalContent({
 
   const renderLine = (line: string, index: number) => {
     const isCommand = line.startsWith("$");
-    const isError = line.includes("command not found") || line.includes("Error:");
-    const isSuccess = line.includes("✓") || line.includes("🎉") || line.includes("🎊");
+    const isError =
+      line.includes("command not found") || line.includes("Error:");
+    const isSuccess =
+      line.includes("✓") || line.includes("🎉") || line.includes("🎊");
     const isWarning = line.includes("Warning:") || line.includes("⚠️");
-    
+
     let lineClassName = "text-green-400 pl-4"; // Default output style - green/cyan for output
-    
+
     if (isCommand) {
       lineClassName = "text-cyan-300"; // Commands are cyan/light blue
     } else if (isError) {
@@ -46,8 +48,7 @@ export default function TerminalContent({
       <div key={index} className={lineClassName}>
         {isCommand ? (
           <>
-            <span className="text-purple-400">$</span>{" "}
-            {line.substring(1)}
+            <span className="text-purple-400">$</span> {line.substring(1)}
           </>
         ) : (
           line

@@ -1,6 +1,9 @@
 "use client";
 
-import { useSectionNavigation, Section } from "./navigation/hooks/useSectionNavigation";
+import {
+  useSectionNavigation,
+  Section,
+} from "./navigation/hooks/useSectionNavigation";
 import NavigationContainer from "./navigation/NavigationContainer";
 
 const sections: Section[] = [

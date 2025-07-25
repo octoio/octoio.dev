@@ -1,12 +1,12 @@
-import PostNavigation from '@/components/PostNavigation'
-import CopyCodeButton from '@/components/CopyCodeButton'
-import HeadingAnchor from '@/components/HeadingAnchor'
-import CodeHighlighter from '@/components/CodeHighlighter'
+import PostNavigation from "@/components/PostNavigation";
+import CopyCodeButton from "@/components/CopyCodeButton";
+import HeadingAnchor from "@/components/HeadingAnchor";
+import CodeHighlighter from "@/components/CodeHighlighter";
 
 export default function PostLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -20,5 +20,5 @@ export default function PostLayout({
         </article>
       </main>
     </div>
-  )
+  );
 }

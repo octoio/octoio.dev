@@ -10,6 +10,7 @@ export interface PostMetadata {
   readTime: number;
   tags: string[];
   featured?: boolean;
+  published?: boolean;
 }
 
 export interface Post extends PostMetadata {
@@ -21,7 +22,9 @@ export interface PostSummary extends PostMetadata {
   slug: string;
 }
 
-export async function getPostSummaries(): Promise<PostSummary[]> {
+export async function getPostSummaries(
+  includeUnpublished: boolean = false
+): Promise<PostSummary[]> {
   // Create directory if it doesn't exist
   if (!fs.existsSync(postsDirectory)) {
     fs.mkdirSync(postsDirectory, { recursive: true });
@@ -56,7 +59,8 @@ export async function getPostSummaries(): Promise<PostSummary[]> {
           publishedAt: metadata.publishedAt,
           readTime: metadata.readTime,
           tags: metadata.tags || [],
-          featured: metadata.featured || false,
+          featured: metadata.featured ?? false,
+          published: metadata.published ?? false,
         } satisfies PostSummary;
       } catch (error) {
         console.error(`Error loading metadata for post ${postDir}:`, error);
@@ -65,9 +69,13 @@ export async function getPostSummaries(): Promise<PostSummary[]> {
     })
   );
 
-  // Filter out null entries and sort by date
-  const validPosts = posts.filter(post => post !== null) as PostSummary[];
-  return validPosts.sort(
+  // Filter out null entries and unpublished posts (unless requested), then sort by date
+  const validPosts = posts.filter((post) => post !== null) as PostSummary[];
+  const filteredPosts = includeUnpublished
+    ? validPosts
+    : validPosts.filter((post) => post.published);
+
+  return filteredPosts.sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
@@ -91,6 +99,7 @@ export async function getPost(slug: string): Promise<Post | null> {
       readTime: metadata.readTime,
       tags: metadata.tags || [],
       featured: metadata.featured || false,
+      published: metadata.published ?? true,
       content: "", // MDX content is rendered by the page component
     } satisfies Post;
   } catch (error) {

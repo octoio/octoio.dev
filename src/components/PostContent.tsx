@@ -1,62 +1,72 @@
-'use client'
+"use client";
 
-import { Post } from '@/lib/posts'
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import CopyCodeButton from './CopyCodeButton'
-import PostNavigation from './PostNavigation'
-import HeadingAnchor from './HeadingAnchor'
+import { Post } from "@/lib/posts";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import CopyCodeButton from "./CopyCodeButton";
+import PostNavigation from "./PostNavigation";
+import HeadingAnchor from "./HeadingAnchor";
 
 interface PostContentProps {
-  post: Post
+  post: Post;
 }
 
 export default function PostContent({ post }: PostContentProps) {
-  const [isVisible, setIsVisible] = useState(true) // Start visible for better SSR
+  const [isVisible, setIsVisible] = useState(true); // Start visible for better SSR
 
   useEffect(() => {
     // Only use fade-in animation on client side
-    if (typeof window !== 'undefined') {
-      setIsVisible(false)
-      const timer = setTimeout(() => setIsVisible(true), 50)
-      return () => clearTimeout(timer)
+    if (typeof window !== "undefined") {
+      setIsVisible(false);
+      const timer = setTimeout(() => setIsVisible(true), 50);
+      return () => clearTimeout(timer);
     }
-  }, [])
+  }, []);
 
   return (
     <>
-      <article className={`max-w-4xl mx-auto p-8 leading-relaxed transition-all duration-600 ${
-        isVisible ? 'opacity-100 animate-fadeInUp' : 'opacity-0'
-      }`}>
-        <Link 
-          href="/posts" 
+      <article
+        className={`max-w-4xl mx-auto p-8 leading-relaxed transition-all duration-600 ${
+          isVisible ? "opacity-100 animate-fadeInUp" : "opacity-0"
+        }`}
+      >
+        <Link
+          href="/posts"
           className="inline-flex items-center gap-2 text-indigo-500 no-underline mb-8 font-medium transition-colors duration-200 hover:text-indigo-600"
         >
           ← Back to Posts
         </Link>
-        
+
         <header className="mb-12 pb-8 border-b border-slate-200">
-          <h1 className="text-4xl md:text-3xl font-bold text-slate-800 mb-4 leading-tight">{post.title}</h1>
+          <h1 className="text-4xl md:text-3xl font-bold text-slate-800 mb-4 leading-tight">
+            {post.title}
+          </h1>
           <p className="text-lg text-slate-600 italic mb-4">{post.excerpt}</p>
           <div className="flex items-center gap-4 mb-6 text-slate-600 text-sm">
-            <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}</span>
+            <span>
+              {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
             <span>•</span>
             <span>{post.readTime} min read</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag) => (
-              <span key={tag} className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-medium">
+              <span
+                key={tag}
+                className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-medium"
+              >
                 {tag}
               </span>
             ))}
           </div>
         </header>
-        
-        <div className="prose prose-slate prose-lg max-w-none
+
+        <div
+          className="prose prose-slate prose-lg max-w-none
           prose-headings:text-slate-800 prose-headings:font-semibold
           prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-0
           prose-h2:text-3xl prose-h2:mb-6 prose-h2:mt-12
@@ -81,5 +91,5 @@ export default function PostContent({ post }: PostContentProps) {
       </article>
       <PostNavigation />
     </>
-  )
+  );
 }

@@ -4,7 +4,11 @@ interface SearchInputProps {
   isLoading: boolean;
 }
 
-export default function SearchInput({ query, onChange, isLoading }: SearchInputProps) {
+export default function SearchInput({
+  query,
+  onChange,
+  isLoading,
+}: SearchInputProps) {
   return (
     <input
       type="text"

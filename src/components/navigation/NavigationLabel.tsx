@@ -6,12 +6,12 @@ interface NavigationLabelProps {
   onClick: (id: string) => void;
 }
 
-export default function NavigationLabel({ 
-  id, 
-  label, 
-  isActive, 
-  showLabels, 
-  onClick 
+export default function NavigationLabel({
+  id,
+  label,
+  isActive,
+  showLabels,
+  onClick,
 }: NavigationLabelProps) {
   return (
     <button

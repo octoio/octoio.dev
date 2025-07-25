@@ -10,9 +10,7 @@ export default function HeroContent({ isVisible, children }: HeroContentProps) {
   return (
     <div
       className={`text-center lg:text-left transition-all duration-1000 ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
       <div className="mb-6">
@@ -23,9 +21,9 @@ export default function HeroContent({ isVisible, children }: HeroContentProps) {
       </div>
 
       <p className="text-xl text-white/90 leading-relaxed mb-8 max-w-xl lg:mx-0 mx-auto">
-        Crafting immersive game experiences through code. From type-safe
-        data pipelines to interactive Unity worlds, I bridge the gap
-        between elegant architecture and compelling gameplay.
+        Crafting immersive game experiences through code. From type-safe data
+        pipelines to interactive Unity worlds, I bridge the gap between elegant
+        architecture and compelling gameplay.
       </p>
 
       <div className="flex justify-center lg:justify-start">

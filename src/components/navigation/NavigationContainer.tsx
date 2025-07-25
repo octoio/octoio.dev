@@ -13,10 +13,10 @@ interface NavigationContainerProps {
   onItemClick: (id: string) => void;
 }
 
-export default function NavigationContainer({ 
-  items, 
-  activeSection, 
-  onItemClick 
+export default function NavigationContainer({
+  items,
+  activeSection,
+  onItemClick,
 }: NavigationContainerProps) {
   const [showLabels, setShowLabels] = useState<boolean>(false);
 
@@ -29,7 +29,9 @@ export default function NavigationContainer({
       <button
         onClick={() => setShowLabels(!showLabels)}
         title={showLabels ? "Hide labels" : "Show labels"}
-        aria-label={showLabels ? "Hide navigation labels" : "Show navigation labels"}
+        aria-label={
+          showLabels ? "Hide navigation labels" : "Show navigation labels"
+        }
         className={`w-6 h-6 border-none bg-none cursor-pointer transition-all duration-200 flex items-center justify-center text-sm font-normal hover:scale-110 focus:outline-none ${
           showLabels ? "text-indigo-500" : "text-slate-600"
         } hover:text-indigo-500`}

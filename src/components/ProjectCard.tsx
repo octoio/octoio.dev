@@ -1,34 +1,32 @@
-import { Project } from '@/types'
-import { COMMON_STYLES, getCardStyles } from '@/styles/constants'
+import { Project } from "@/types";
+import { COMMON_STYLES, getCardStyles } from "@/styles/constants";
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const handleCardClick = () => {
     if (project.url) {
-      window.open(project.url, '_blank', 'noopener,noreferrer')
+      window.open(project.url, "_blank", "noopener,noreferrer");
     }
-  }
+  };
 
   return (
-    <div 
+    <div
       className={`${getCardStyles(project.featured)} cursor-pointer`}
       onClick={handleCardClick}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          handleCardClick()
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleCardClick();
         }
       }}
     >
       {project.featured && (
-        <div className={COMMON_STYLES.featuredBadge}>
-          Featured
-        </div>
+        <div className={COMMON_STYLES.featuredBadge}>Featured</div>
       )}
       <h3 className={COMMON_STYLES.cardTitle}>{project.title}</h3>
       <p className={COMMON_STYLES.cardDescription}>{project.description}</p>
@@ -41,9 +39,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
       <div className="flex gap-4">
         {project.url && (
-          <a 
-            href={project.url} 
-            target="_blank" 
+          <a
+            href={project.url}
+            target="_blank"
             rel="noopener noreferrer"
             className={COMMON_STYLES.link}
             onClick={(e) => e.stopPropagation()} // Prevent double navigation
@@ -52,9 +50,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </a>
         )}
         {project.liveUrl && (
-          <a 
-            href={project.liveUrl} 
-            target="_blank" 
+          <a
+            href={project.liveUrl}
+            target="_blank"
             rel="noopener noreferrer"
             className={COMMON_STYLES.link}
             onClick={(e) => e.stopPropagation()} // Prevent double navigation
@@ -64,5 +62,5 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         )}
       </div>
     </div>
-  )
+  );
 }

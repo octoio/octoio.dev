@@ -7,7 +7,7 @@ export const socialLinks: SocialLink[] = [
     url: "mailto:octoiodev@gmail.com",
     username: "octoiodev@gmail.com",
     description: "Send me a direct message",
-    icon: "/images/social/email.svg"
+    icon: "/images/social/email.svg",
   },
   {
     name: "Discord",
@@ -15,7 +15,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://discord.gg/Wb2ZZCEF",
     username: "octoio",
     description: "Join our dev community",
-    icon: "/images/social/discord.svg"
+    icon: "/images/social/discord.svg",
   },
   {
     name: "YouTube",
@@ -23,7 +23,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://youtube.com/@octoio",
     username: "@octoio",
     description: "Dev tutorials and insights",
-    icon: "/images/social/youtube.svg"
+    icon: "/images/social/youtube.svg",
   },
   {
     name: "Reddit",
@@ -31,7 +31,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://reddit.com/u/octoio",
     username: "u/octoio",
     description: "Dev discussions and tips",
-    icon: "/images/social/reddit.svg"
+    icon: "/images/social/reddit.svg",
   },
   {
     name: "Instagram",
@@ -39,7 +39,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://instagram.com/octoio",
     username: "@octoio.dev",
     description: "Behind-the-scenes content",
-    icon: "/images/social/instagram.svg"
+    icon: "/images/social/instagram.svg",
   },
   {
     name: "TikTok",
@@ -47,6 +47,6 @@ export const socialLinks: SocialLink[] = [
     url: "https://www.tiktok.com/@octoio_dev",
     username: "@octoio_dev",
     description: "Quick dev tips and tricks",
-    icon: "/images/social/tiktok.svg"
+    icon: "/images/social/tiktok.svg",
   },
 ];

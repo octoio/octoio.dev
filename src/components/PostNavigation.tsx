@@ -6,9 +6,9 @@ import NavigationContainer from "./navigation/NavigationContainer";
 export default function PostNavigation() {
   const { headings, activeSection, scrollToHeading } = useHeadingNavigation();
 
-  const navigationItems = headings.map(heading => ({
+  const navigationItems = headings.map((heading) => ({
     id: heading.id,
-    label: heading.text
+    label: heading.text,
   }));
 
   return (

@@ -1,36 +1,36 @@
-import { getPost, getAllPostSlugs } from '@/lib/posts'
-import { notFound } from 'next/navigation'
-import PostContent from '@/components/PostContent'
+import { getPost, getAllPostSlugs } from "@/lib/posts";
+import { notFound } from "next/navigation";
+import PostContent from "@/components/PostContent";
 
 interface PostPageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params
-  const post = await getPost(slug)
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  return <PostContent post={post} />
+  return <PostContent post={post} />;
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs()
-  return slugs.map((slug) => ({ slug }))
+  const slugs = await getAllPostSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PostPageProps) {
-  const { slug } = await params
-  const post = await getPost(slug)
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     return {
-      title: 'Post Not Found',
-      description: 'The requested post could not be found.',
-    }
+      title: "Post Not Found",
+      description: "The requested post could not be found.",
+    };
   }
 
   return {
@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: PostPageProps) {
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      type: 'article',
+      type: "article",
       publishedTime: post.publishedAt,
       tags: post.tags,
     },
-  }
+  };
 }

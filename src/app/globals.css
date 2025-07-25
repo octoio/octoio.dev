@@ -12,10 +12,11 @@
   code,
   pre {
     font-family: var(--font-fira-code), monospace;
-    font-feature-settings: "liga" 1, "calt" 1;
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1;
   }
 }
-
 
 /* Syntax highlighting styles - Updated for rehype-highlight */
 .hljs {

@@ -174,13 +174,7 @@
     "title": "Building This Website: My AI-Powered Development Experience",
     "description": "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
     "url": "/post/building-with-ai-and-claude/",
-    "tags": [
-      "AI Development",
-      "Next.js",
-      "TypeScript",
-      "Claude",
-      "Web Development"
-    ],
+    "tags": [],
     "featured": true,
     "data": {
       "slug": "building-with-ai-and-claude",
@@ -188,66 +182,9 @@
       "excerpt": "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
       "publishedAt": "2025-07-25",
       "readTime": 5,
-      "tags": [
-        "AI Development",
-        "Next.js",
-        "TypeScript",
-        "Claude",
-        "Web Development"
-      ],
-      "featured": true
-    }
-  },
-  {
-    "type": "post",
-    "title": "Building a Multi-Language Game Development Ecosystem",
-    "description": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
-    "url": "/post/multi-language-game-ecosystem/",
-    "tags": [
-      "Game Development",
-      "OCaml",
-      "TypeScript",
-      "Unity"
-    ],
-    "featured": true,
-    "data": {
-      "slug": "multi-language-game-ecosystem",
-      "title": "Building a Multi-Language Game Development Ecosystem",
-      "excerpt": "How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.",
-      "publishedAt": "2025-07-20",
-      "readTime": 8,
-      "tags": [
-        "Game Development",
-        "OCaml",
-        "TypeScript",
-        "Unity"
-      ],
-      "featured": true
-    }
-  },
-  {
-    "type": "post",
-    "title": "The Power of Type Safety in Game Data Pipelines",
-    "description": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
-    "url": "/post/type-safety-game-pipelines/",
-    "tags": [
-      "Type Safety",
-      "OCaml",
-      "Game Development"
-    ],
-    "featured": true,
-    "data": {
-      "slug": "type-safety-game-pipelines",
-      "title": "The Power of Type Safety in Game Data Pipelines",
-      "excerpt": "Exploring how strong typing across multiple languages prevents bugs and improves developer experience.",
-      "publishedAt": "2025-07-20",
-      "readTime": 6,
-      "tags": [
-        "Type Safety",
-        "OCaml",
-        "Game Development"
-      ],
-      "featured": true
+      "tags": [],
+      "featured": true,
+      "published": true
     }
   },
   {
@@ -273,7 +210,7 @@
       "description": "I was able to cook something that I am very proud of for this third update ⛺️\n\nThe game is going in the right direction, and I can't wait to show more! Stay tuned for an upcoming full gameplay session with my friends!\n\nLinks\n---------------------------------\nFey's Official Discord: https://discord.gg/3FxWdFvKYU\nTikTok Account: https://www.tiktok.com/@octoio_dev\nReddit Account: https://www.reddit.com/r/octoio\n\nMusic\n---------------------------------\nMedieval Lofi https://www.youtube.com/channel/UCNol4Qo1VfTFKbU4fZxOU8w\nhttps://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮\n\nChapters\n---------------------------------\n0:00 Intro\n0:17 The Village\n0:33 Loading Stages\n0:46 Quest Component\n1:01 Quests Relations\n1:42 Quests Entities\n2:14 Example\n2:49 Running Errands\n3:26 The Forest's Unwanted Guests\n4:00 Looping Back\n4:15 Outro",
       "publishedAt": "2024-07-28T23:30:07Z",
       "thumbnailUrl": "https://i.ytimg.com/vi/f12FesaUYYk/maxresdefault.jpg",
-      "viewCount": "190",
+      "viewCount": "191",
       "duration": "PT4M46S",
       "tags": [
         "roguelike",
@@ -378,7 +315,7 @@
       "description": "🚀 I'm leaping into the unknown! Welcome to my first devlog for Fey (fæge), an online coop dungeon crawler RPG roguelite, from its ideation to its creation.\n\nThe devlogs for the game will be bite-sized to cover the different systems.\n\nLinks\n---------------------------------\nFey's Official Discord: https://discord.gg/3FxWdFvKYU\nTikTok Account: https://www.tiktok.com/@octoio_dev\nReddit Account: https://www.reddit.com/r/octoio\n\nMusic\n---------------------------------\nMedieval Lofi https://www.youtube.com/channel/UCNol4Qo1VfTFKbU4fZxOU8w\nhttps://medievallofi.bandcamp.com\n\nDon't forget to like, subscribe, and join the Fey community! 🎮\n\nChapters\n---------------------------------\n0:00 Introduction\n1:03 Fey\n1:41 Inspiration\n3:48 Plannification\n4:24 Iterations\n6:36 Current State\n7:29 Outro",
       "publishedAt": "2023-12-27T18:41:24Z",
       "thumbnailUrl": "https://i.ytimg.com/vi/qpSnns2_SBg/maxresdefault.jpg",
-      "viewCount": "2683",
+      "viewCount": "2684",
       "duration": "PT7M46S",
       "tags": [
         "roguelike",

@@ -483,39 +483,55 @@ Welcome to the secret club of terminal explorers! 🎊`,
 };
 
 export const getCurrentPath = (path: string[]): string => {
-  return path.length > 1 
-    ? `~/${path.slice(1).join('/')}`
-    : '~';
+  return path.length > 1 ? `~/${path.slice(1).join("/")}` : "~";
 };
 
-export const getDirectoryContents = (fs: FileSystem, path: string[]): string[] => {
+export const getDirectoryContents = (
+  fs: FileSystem,
+  path: string[]
+): string[] => {
   const dir = getDirectory(fs, path);
   return dir ? Object.keys(dir) : [];
 };
 
-export const getDirectory = (fs: FileSystem, path: string[]): FileSystem | null => {
+export const getDirectory = (
+  fs: FileSystem,
+  path: string[]
+): FileSystem | null => {
   return path.reduce<FileSystem | null>((acc, key) => {
-    if (acc && typeof acc[key] === 'object') {
+    if (acc && typeof acc[key] === "object") {
       return acc[key] as FileSystem;
     }
     return null;
   }, fs);
 };
 
-export const getFile = (fs: FileSystem, path: string[], filename: string): string | null => {
+export const getFile = (
+  fs: FileSystem,
+  path: string[],
+  filename: string
+): string | null => {
   const dir = getDirectory(fs, path);
-  if (dir && typeof dir[filename] === 'string') {
+  if (dir && typeof dir[filename] === "string") {
     return dir[filename] as string;
   }
   return null;
 };
 
-export const isDirectory = (fs: FileSystem, path: string[], name: string): boolean => {
+export const isDirectory = (
+  fs: FileSystem,
+  path: string[],
+  name: string
+): boolean => {
   const dir = getDirectory(fs, path);
-  return dir ? typeof dir[name] === 'object' : false;
+  return dir ? typeof dir[name] === "object" : false;
 };
 
-export const isFile = (fs: FileSystem, path: string[], name: string): boolean => {
+export const isFile = (
+  fs: FileSystem,
+  path: string[],
+  name: string
+): boolean => {
   const dir = getDirectory(fs, path);
-  return dir ? typeof dir[name] === 'string' : false;
+  return dir ? typeof dir[name] === "string" : false;
 };

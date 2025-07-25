@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { SearchItem } from './useSearchData';
+import { useState, useEffect, useCallback } from "react";
+import { SearchItem } from "./useSearchData";
 
 interface SearchResult {
   item: SearchItem;
@@ -42,18 +42,18 @@ export function useKeyboardNavigation({
 
     const handleKeyDown = (e: KeyboardEvent) => {
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           onClose();
           break;
-        case 'ArrowDown':
+        case "ArrowDown":
           e.preventDefault();
-          setSelectedIndex(i => (i + 1) % results.length);
+          setSelectedIndex((i) => (i + 1) % results.length);
           break;
-        case 'ArrowUp':
+        case "ArrowUp":
           e.preventDefault();
-          setSelectedIndex(i => (i - 1 + results.length) % results.length);
+          setSelectedIndex((i) => (i - 1 + results.length) % results.length);
           break;
-        case 'Enter':
+        case "Enter":
           e.preventDefault();
           if (results[selectedIndex]) {
             onSelect(results[selectedIndex].item.url);
@@ -62,8 +62,8 @@ export function useKeyboardNavigation({
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose, results, selectedIndex, onSelect]);
 
   return {

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 export interface TerminalLine {
   text: string;
@@ -94,22 +94,25 @@ export const useTerminalAnimation = (
     setIsAnimationComplete(false);
   }, []);
 
-  const typeText = useCallback((text: string, callback: () => void) => {
-    let charIndex = 0;
-    setCurrentText("");
+  const typeText = useCallback(
+    (text: string, callback: () => void) => {
+      let charIndex = 0;
+      setCurrentText("");
 
-    const typeChar = () => {
-      if (charIndex < text.length) {
-        setCurrentText(text.substring(0, charIndex + 1));
-        charIndex++;
-        setTimeout(typeChar, typingSpeed);
-      } else {
-        callback();
-      }
-    };
+      const typeChar = () => {
+        if (charIndex < text.length) {
+          setCurrentText(text.substring(0, charIndex + 1));
+          charIndex++;
+          setTimeout(typeChar, typingSpeed);
+        } else {
+          callback();
+        }
+      };
 
-    typeChar();
-  }, [typingSpeed]);
+      typeChar();
+    },
+    [typingSpeed]
+  );
 
   const animateNextLine = useCallback(() => {
     if (currentLineIndex >= lines.length) {
@@ -149,7 +152,15 @@ export const useTerminalAnimation = (
 
       return () => clearTimeout(startAnimation);
     }
-  }, [isVisible, currentLineIndex, completedLines.length, isTyping, startDelay, animateNextLine, resetAnimation]);
+  }, [
+    isVisible,
+    currentLineIndex,
+    completedLines.length,
+    isTyping,
+    startDelay,
+    animateNextLine,
+    resetAnimation,
+  ]);
 
   // Handle line progression
   useEffect(() => {
@@ -158,7 +169,7 @@ export const useTerminalAnimation = (
     if (currentLineIndex > 0 && currentLineIndex < lines.length) {
       const currentLine = lines[currentLineIndex];
       const delay = currentLine.isCommand ? commandDelay : outputDelay;
-      
+
       const timer = setTimeout(() => {
         animateNextLine();
       }, delay);
@@ -166,14 +177,14 @@ export const useTerminalAnimation = (
       return () => clearTimeout(timer);
     }
   }, [
-    currentLineIndex, 
-    isVisible, 
-    isTyping, 
-    isAnimationComplete, 
-    lines, 
-    commandDelay, 
-    outputDelay, 
-    animateNextLine
+    currentLineIndex,
+    isVisible,
+    isTyping,
+    isAnimationComplete,
+    lines,
+    commandDelay,
+    outputDelay,
+    animateNextLine,
   ]);
 
   // Check for animation completion separately
@@ -182,7 +193,12 @@ export const useTerminalAnimation = (
       setIsAnimationComplete(true);
       onAnimationComplete?.();
     }
-  }, [currentLineIndex, lines.length, isAnimationComplete, onAnimationComplete]);
+  }, [
+    currentLineIndex,
+    lines.length,
+    isAnimationComplete,
+    onAnimationComplete,
+  ]);
 
   return {
     currentLineIndex,

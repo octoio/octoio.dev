@@ -13,7 +13,10 @@ interface TerminalDisplayProps {
   autoFocus?: boolean;
 }
 
-export default function TerminalDisplay({ isVisible, autoFocus = false }: TerminalDisplayProps) {
+export default function TerminalDisplay({
+  isVisible,
+  autoFocus = false,
+}: TerminalDisplayProps) {
   const [userLines, setUserLines] = useState<string[]>([]);
   const [inputMode, setInputMode] = useState(false);
 
@@ -91,8 +94,8 @@ export default function TerminalDisplay({ isVisible, autoFocus = false }: Termin
       >
         {/* Interactive input after animation completes */}
         {inputMode && (
-          <TerminalInput 
-            isVisible={true} 
+          <TerminalInput
+            isVisible={true}
             onCommand={handleCommand}
             currentPath={currentPath}
             autoFocus={autoFocus}

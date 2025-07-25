@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
-import Fuse from 'fuse.js';
-import { SearchItem } from './useSearchData';
+import { useState, useMemo } from "react";
+import Fuse from "fuse.js";
+import { SearchItem } from "./useSearchData";
 
 interface SearchResult {
   item: SearchItem;
@@ -17,18 +17,26 @@ interface UseSearchResultsReturn {
   setQuery: (query: string) => void;
 }
 
-export function useSearchResults({ searchData }: UseSearchResultsProps): UseSearchResultsReturn {
-  const [query, setQuery] = useState('');
+export function useSearchResults({
+  searchData,
+}: UseSearchResultsProps): UseSearchResultsReturn {
+  const [query, setQuery] = useState("");
 
-  const fuse = useMemo(() => new Fuse(searchData, {
-    keys: ['title', 'description', 'tags'],
-    threshold: 0.3,
-  }), [searchData]);
+  const fuse = useMemo(
+    () =>
+      new Fuse(searchData, {
+        keys: ["title", "description", "tags"],
+        threshold: 0.3,
+      }),
+    [searchData]
+  );
 
   const results = useMemo(() => {
     if (!query.trim()) {
       // Show all items by default when no query
-      return searchData.slice(0, 8).map((item, index) => ({ item, refIndex: index }));
+      return searchData
+        .slice(0, 8)
+        .map((item, index) => ({ item, refIndex: index }));
     }
     return fuse.search(query).slice(0, 8);
   }, [query, fuse, searchData]);

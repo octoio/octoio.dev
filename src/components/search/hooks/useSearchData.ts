@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export interface SearchItem {
-  type: 'project' | 'post' | 'social' | 'page' | 'video';
+  type: "project" | "post" | "social" | "page" | "video";
   title: string;
   description: string;
   url: string;
@@ -22,15 +22,15 @@ export function useSearchData(): UseSearchDataReturn {
   useEffect(() => {
     const loadSearchIndex = async () => {
       try {
-        const response = await fetch('/search-index.json');
+        const response = await fetch("/search-index.json");
         if (response.ok) {
           const data = await response.json();
           setSearchData(data);
         } else {
-          console.error('Failed to load search index');
+          console.error("Failed to load search index");
         }
       } catch (error) {
-        console.error('Error loading search index:', error);
+        console.error("Error loading search index:", error);
       } finally {
         setIsLoading(false);
       }
