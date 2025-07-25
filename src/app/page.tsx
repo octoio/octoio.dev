@@ -6,7 +6,6 @@ import About from '@/components/About'
 import SocialLinks from '@/components/SocialLinks'
 import Footer from '@/components/Footer'
 import PageNavigation from '@/components/PageNavigation'
-import SearchProvider from '@/components/SearchProvider'
 import { getPostSummaries } from '@/lib/posts'
 
 export default async function Home() {
@@ -24,7 +23,6 @@ export default async function Home() {
         <Footer />
       </main>
       <PageNavigation />
-      <SearchProvider />
     </>
   )
 }

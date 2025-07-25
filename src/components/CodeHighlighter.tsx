@@ -26,7 +26,8 @@ export default function CodeHighlighter() {
           json,
           bash,
           css,
-          xml
+          xml,
+          markdown
         ] = await Promise.all([
           import('highlight.js/lib/languages/javascript'),
           import('highlight.js/lib/languages/typescript'),
@@ -35,7 +36,8 @@ export default function CodeHighlighter() {
           import('highlight.js/lib/languages/json'),
           import('highlight.js/lib/languages/bash'),
           import('highlight.js/lib/languages/css'),
-          import('highlight.js/lib/languages/xml')
+          import('highlight.js/lib/languages/xml'),
+          import('highlight.js/lib/languages/markdown')
         ])
 
         hljs.default.registerLanguage('javascript', javascript.default)
@@ -46,6 +48,8 @@ export default function CodeHighlighter() {
         hljs.default.registerLanguage('bash', bash.default)
         hljs.default.registerLanguage('css', css.default)
         hljs.default.registerLanguage('html', xml.default)
+        hljs.default.registerLanguage('markdown', markdown.default)
+        hljs.default.registerLanguage('md', markdown.default)
 
         // Find all code blocks and highlight them
         const codeBlocks = document.querySelectorAll('pre code[class*="language-"]')

@@ -1,0 +1,163 @@
+import TerminalDisplay from "@/components/hero/TerminalDisplay";
+import Search from "@/components/Search";
+import TechStackRotator from "@/components/hero/TechStackRotator";
+import PostHeader from "@/components/PostHeader";
+
+export const metadata = {
+  title: "Building This Website: My AI-Powered Development Experience",
+  excerpt: "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
+  publishedAt: "2025-01-25",
+  readTime: 5,
+  tags: ["AI Development", "Next.js", "TypeScript", "Claude", "Web Development"],
+  featured: true
+}
+
+<PostHeader metadata={metadata} />
+
+# Building This Website: My AI-Powered Development Experience
+
+When I set out to build this portfolio website, I knew I wanted something special. What I didn't expect was how much building it with Claude would feel like being a product manager with the world's most efficient development team.
+
+## The PM-Developer Dynamic
+
+Working with Claude feels fundamentally different from traditional coding. Instead of wrestling with implementation details, I found myself in a strategic role - defining features, iterating on design, and focusing on the user experience. Claude handled the heavy lifting of turning ideas into working code.
+
+It's like having a developer who:
+- Never gets tired or frustrated
+- Implements features instantly 
+- Always follows best practices
+- Can context-switch between any technology stack
+- Provides suggestions and catches potential issues
+
+## What We Built Together
+
+The website showcases several interesting features that emerged from our collaborative process:
+
+### Interactive Terminal
+One of my favorite additions was the terminal component. I mentioned wanting something unique for the hero section, and Claude suggested a fully functional terminal simulator with:
+- Virtual filesystem with hidden easter eggs
+- Tab completion and command history
+- Custom commands including a `nav` command for site navigation
+- Konami code support (because why not?)
+
+Try it yourself in the terminal below:
+
+<TerminalDisplay isVisible={true} autoFocus={false} />
+
+### Comprehensive Search
+The search functionality evolved from a simple idea into a sophisticated system:
+- Fuzzy search across projects, posts, videos, and social links
+- Keyboard shortcuts (⌘K, /) for quick access
+- Real-time YouTube integration for devlog content
+- Unified results across all content types
+
+Try the search below, or use ⌘K anywhere on the site:
+
+<Search />
+
+### Personal Journey Integration
+We spent time making the About section authentic rather than generic, incorporating my actual timeline from discovering programming in 2016 to creating the Octoio persona and launching devlogs.
+
+### The Power of MDX
+
+One of the coolest technical decisions was using **MDX for the blog system**. For those unfamiliar:
+
+- **Markdown** is a lightweight markup language - you write `# Heading` instead of `<h1>Heading</h1>`
+- **MDX** extends Markdown by allowing you to embed React components directly in your content
+
+This means I can write normal Markdown for text content, but drop in interactive components anywhere:
+
+```md
+# Regular Markdown heading
+
+Some regular text content...
+
+<TerminalDisplay isVisible={true} autoFocus={false} />
+
+More text, then maybe a search component:
+
+<Search />
+```
+
+The result? **This entire blog post** is written in MDX! The terminal you interacted with above, the search component, and the tech stack rotator are all live React components embedded in what feels like a simple text document.
+
+It's the perfect blend of content authoring simplicity with the full power of React when you need it.
+
+## The Feature Creep Experience
+
+Here's where it gets interesting - building with AI makes feature creep almost inevitable, but in the best possible way. Every conversation sparked new ideas:
+
+"What if the terminal could navigate the site?"
+"Could we add syntax highlighting to code blocks?"
+"Should we have a project showcase with dynamic filtering?"
+
+Within minutes, these ideas became working features. The traditional barriers to experimentation - time, complexity, mental fatigue - largely disappeared.
+
+## When AI Development Shines
+
+I found AI development particularly powerful for:
+
+1. **Rapid Prototyping**: Ideas become working demos almost instantly
+2. **Best Practices**: Claude consistently applies modern patterns and optimizations
+3. **Cross-Technology Work**: Seamlessly handled Next.js, TypeScript, Tailwind, and MDX
+4. **Problem Solving**: When issues arose, debugging was conversational and efficient
+5. **Iteration Speed**: Making changes and improvements felt effortless
+
+## The Result: Probably Overkill
+
+Looking at the final result, I definitely went overboard. A simple portfolio became:
+- A full Next.js 15 application with static site generation
+- Interactive terminal with virtual filesystem
+- Comprehensive search system
+- MDX blog with syntax highlighting
+- YouTube API integration
+- Multi-layered navigation system
+- Responsive design with animations
+
+Is it overkill for a portfolio? Absolutely. Am I satisfied with the result? Completely.
+
+## When AI Development Goes Wrong: The Nitpicking Trap
+
+However, it's not all sunshine and rapid prototyping. **AI can actually make you less productive when you fall into the nitpicking trap.**
+
+Case in point: the tech stack rotator component you see in the hero section. What should have been a simple rotating text animation turned into an hours-long perfectionist spiral:
+
+<TechStackRotator />
+
+This innocent-looking component took an embarrassing amount of time to create. Why? Because AI makes iteration so effortless that you can endlessly chase perfection:
+
+- "Can we make the timing slightly smoother?"
+- "What about a different easing function?"
+- "Should the pause be 0.2 seconds longer?"
+- "Maybe the fade transition needs more sophistication?"
+
+Each request took Claude seconds to implement, so I kept going. The traditional friction of manual coding usually forces you to accept "good enough" - but with AI, that natural stopping point disappears.
+
+**The lesson**: AI amplifies both your productivity AND your perfectionist tendencies. Sometimes you need to consciously step back and ask "is this actually improving the user experience, or am I just nitpicking?"
+
+## The Importance of Domain Knowledge
+
+One crucial insight from this project: **AI development works best when you already know the tech stack**. My familiarity with Next.js and React was essential for:
+
+- **Speaking the Language**: Using precise technical terms when describing requirements ("server component vs client component", "static generation vs SSR")
+- **Product Communication**: Articulating UI/UX concepts clearly ("sticky navigation", "responsive breakpoints", "semantic HTML")
+- **Effective Debugging**: Understanding error messages and knowing where to look in the codebase when issues arise
+- **Quality Control**: Recognizing when implementations could be cleaner and asking for refactoring
+
+Without this foundation, the collaboration would have been much less efficient. AI amplifies your existing knowledge rather than replacing it.
+
+## Reflections on AI-Assisted Development
+
+Building this website reinforced my belief that AI tools like Claude are game-changers for developers. They don't replace the need for technical knowledge or good judgment, but they amplify your ability to turn ideas into reality.
+
+The experience felt less like coding and more like product development - focusing on what to build rather than how to build it. For someone who loves experimenting with new ideas and technologies, this shift is incredibly empowering.
+
+## What's Next
+
+This collaborative approach to development has me excited about future projects. When the implementation barrier is lowered this much, the limiting factor becomes imagination rather than technical constraints.
+
+The website continues to evolve based on feedback and new ideas. That's perhaps the most interesting aspect - with AI assistance, maintaining and extending the codebase feels as effortless as building it initially.
+
+---
+
+*The source code for this website is available on [GitHub](https://github.com/octoio/octoio.dev). Feel free to explore the implementation or use it as inspiration for your own AI-assisted development projects.*

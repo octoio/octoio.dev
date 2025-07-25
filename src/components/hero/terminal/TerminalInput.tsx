@@ -7,12 +7,14 @@ interface TerminalInputProps {
   onCommand: (command: string) => void;
   currentPath: string[];
   placeholder?: string;
+  autoFocus?: boolean;
 }
 
 export default function TerminalInput({
   isVisible,
   onCommand,
   currentPath,
+  autoFocus = false,
 }: TerminalInputProps) {
   const [userInput, setUserInput] = useState("");
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
@@ -27,12 +29,12 @@ export default function TerminalInput({
     fs: virtualFS,
   });
 
-  // Focus input when visible
+  // Focus input when visible and autoFocus is enabled
   useEffect(() => {
-    if (isVisible && inputRef.current) {
+    if (isVisible && autoFocus && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isVisible]);
+  }, [isVisible, autoFocus]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     switch (e.key) {

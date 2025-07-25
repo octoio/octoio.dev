@@ -43,7 +43,7 @@ export const projects: Project[] = [
     ],
     url: "https://github.com/octoio/voice-viewer",
     displayUrl: "View on GitHub",
-    featured: true,
+    featured: false,
   },
   {
     id: "4",
@@ -64,5 +64,15 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/fey-manim",
     displayUrl: "View on GitHub",
     featured: false,
+  },
+  {
+    id: "6",
+    title: "octoio.dev",
+    description:
+      "This portfolio website built with Next.js 15 and TypeScript. Features an interactive terminal, fuzzy search, MDX blog system, and comprehensive project showcase. Built collaboratively with Claude.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MDX", "Fuse.js"],
+    url: "https://github.com/octoio/octoio.dev",
+    displayUrl: "View on GitHub",
+    featured: true,
   },
 ];

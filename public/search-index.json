@@ -72,7 +72,7 @@
       "PyAudio",
       "NumPy"
     ],
-    "featured": true,
+    "featured": false,
     "data": {
       "id": "3",
       "title": "Voice Viewer",
@@ -87,7 +87,7 @@
       ],
       "url": "https://github.com/octoio/voice-viewer",
       "displayUrl": "View on GitHub",
-      "featured": true
+      "featured": false
     }
   },
   {
@@ -138,6 +138,64 @@
       "url": "https://github.com/octoio/fey-manim",
       "displayUrl": "View on GitHub",
       "featured": false
+    }
+  },
+  {
+    "type": "project",
+    "title": "octoio.dev",
+    "description": "This portfolio website built with Next.js 15 and TypeScript. Features an interactive terminal, fuzzy search, MDX blog system, and comprehensive project showcase. Built collaboratively with Claude.",
+    "url": "/projects#6",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MDX",
+      "Fuse.js"
+    ],
+    "featured": true,
+    "data": {
+      "id": "6",
+      "title": "octoio.dev",
+      "description": "This portfolio website built with Next.js 15 and TypeScript. Features an interactive terminal, fuzzy search, MDX blog system, and comprehensive project showcase. Built collaboratively with Claude.",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "MDX",
+        "Fuse.js"
+      ],
+      "url": "https://github.com/octoio/octoio.dev",
+      "displayUrl": "View on GitHub",
+      "featured": true
+    }
+  },
+  {
+    "type": "post",
+    "title": "Building This Website: My AI-Powered Development Experience",
+    "description": "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
+    "url": "/post/building-with-ai-and-claude/",
+    "tags": [
+      "AI Development",
+      "Next.js",
+      "TypeScript",
+      "Claude",
+      "Web Development"
+    ],
+    "featured": true,
+    "data": {
+      "slug": "building-with-ai-and-claude",
+      "title": "Building This Website: My AI-Powered Development Experience",
+      "excerpt": "How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.",
+      "publishedAt": "2025-01-25",
+      "readTime": 5,
+      "tags": [
+        "AI Development",
+        "Next.js",
+        "TypeScript",
+        "Claude",
+        "Web Development"
+      ],
+      "featured": true
     }
   },
   {

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Fira_Code } from "next/font/google";
+import SearchProvider from "@/components/SearchProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -84,6 +85,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${firaCode.variable}`}
       >
         {children}
+        <SearchProvider />
       </body>
     </html>
   );

@@ -27,7 +27,7 @@ export default function Hero() {
             </HeroContent>
 
             {/* Right side - Terminal */}
-            <TerminalDisplay isVisible={isVisible} />
+            <TerminalDisplay isVisible={isVisible} autoFocus={true} />
           </div>
         </div>
       </div>

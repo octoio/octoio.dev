@@ -10,9 +10,10 @@ import { useVirtualFileSystem } from "./useVirtualFileSystem";
 
 interface TerminalDisplayProps {
   isVisible: boolean;
+  autoFocus?: boolean;
 }
 
-export default function TerminalDisplay({ isVisible }: TerminalDisplayProps) {
+export default function TerminalDisplay({ isVisible, autoFocus = false }: TerminalDisplayProps) {
   const [userLines, setUserLines] = useState<string[]>([]);
   const [inputMode, setInputMode] = useState(false);
 
@@ -94,6 +95,7 @@ export default function TerminalDisplay({ isVisible }: TerminalDisplayProps) {
             isVisible={true} 
             onCommand={handleCommand}
             currentPath={currentPath}
+            autoFocus={autoFocus}
           />
         )}
       </TerminalContent>
