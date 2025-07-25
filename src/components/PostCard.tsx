@@ -1,6 +1,7 @@
 "use client";
 
-import { PostSummary } from "@/lib/posts";
+import type { PostSummary } from "@/types";
+import { PostState } from "@/types";
 
 interface PostCardProps {
   post: PostSummary;
@@ -14,7 +15,9 @@ export default function PostCard({ post }: PostCardProps) {
   return (
     <article
       className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
-        post.featured ? "border-2 border-indigo-500" : "border border-slate-200"
+        post.state === PostState.FEATURED
+          ? "border-2 border-indigo-500"
+          : "border border-slate-200"
       }`}
       onClick={handleCardClick}
       role="button"
@@ -26,7 +29,7 @@ export default function PostCard({ post }: PostCardProps) {
         }
       }}
     >
-      {post.featured && (
+      {post.state === PostState.FEATURED && (
         <div className="bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-4 inline-block">
           Featured
         </div>

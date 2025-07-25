@@ -1,6 +1,6 @@
 "use client";
 
-import { Post } from "@/lib/posts";
+import type { Post } from "@/types";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import CopyCodeButton from "./CopyCodeButton";

@@ -3,6 +3,7 @@ import Search from "@/components/Search";
 import TechStackRotator from "@/components/hero/TechStackRotator";
 import PostHeader from "@/components/PostHeader";
 import MermaidDiagram from "@/components/MermaidDiagram";
+import { PostState } from "@/types";
 
 export const metadata = {
   title: "Building This Website: My AI-Powered Development Experience",
@@ -17,8 +18,7 @@ export const metadata = {
     "Claude",
     "Web Development",
   ],
-  featured: true,
-  published: true,
+  state: PostState.FEATURED,
 };
 
 <PostHeader metadata={metadata} />

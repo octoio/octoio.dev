@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-interface PostMetadata {
-  title: string;
-  excerpt: string;
-  publishedAt: string;
-  readTime: number;
-  tags: string[];
-}
+import type { PostMetadata } from "@/types";
 
 interface PostHeaderProps {
   metadata: PostMetadata;

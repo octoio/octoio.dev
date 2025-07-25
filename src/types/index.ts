@@ -10,14 +10,39 @@ export interface Project {
   featured: boolean;
 }
 
-export interface Post {
-  id: string;
+// Post-related types
+export enum PostState {
+  DRAFT = "draft",
+  PUBLISHED = "published",
+  FEATURED = "featured",
+}
+
+export interface PostMetadata {
   title: string;
   excerpt: string;
   publishedAt: string;
   readTime: number;
-  slug: string;
   tags: string[];
+  state: PostState;
+}
+
+export interface Post extends PostMetadata {
+  slug: string;
+  content: string;
+}
+
+export interface PostSummary extends PostMetadata {
+  slug: string;
+}
+
+export interface PostFromFileSystem {
+  slug: string;
+  title: string;
+  excerpt: string;
+  publishedAt: string;
+  readTime: number;
+  tags: string[];
+  state: PostState;
 }
 
 export interface SocialLink {
@@ -27,4 +52,26 @@ export interface SocialLink {
   username?: string;
   description: string;
   icon: string;
+}
+
+// Search-related types
+export interface SearchItem {
+  type: "project" | "post" | "social" | "page" | "video";
+  title: string;
+  description: string;
+  url: string;
+  tags: string[];
+  featured: boolean;
+  data: Project | PostFromFileSystem | SocialLink | YouTubeVideo | null;
+}
+
+export interface YouTubeVideo {
+  id: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  thumbnailUrl: string;
+  viewCount: string;
+  duration: string;
+  tags: string[];
 }

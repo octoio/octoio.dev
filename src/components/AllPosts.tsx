@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { PostSummary } from "@/lib/posts";
+import type { PostSummary } from "@/types";
+import { PostState } from "@/types";
 import PostCard from "@/components/PostCard";
 
 interface AllPostsProps {
@@ -9,8 +10,8 @@ interface AllPostsProps {
 }
 
 export default function AllPosts({ posts }: AllPostsProps) {
-  const featuredPosts = posts.filter((p) => p.featured);
-  const otherPosts = posts.filter((p) => !p.featured);
+  const featuredPosts = posts.filter((p) => p.state === PostState.FEATURED);
+  const otherPosts = posts.filter((p) => p.state !== PostState.FEATURED);
 
   return (
     <section className="py-20 px-8 bg-slate-50 min-h-screen">

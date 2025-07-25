@@ -1,5 +1,6 @@
 import PostHeader from "@/components/PostHeader";
 import MermaidDiagram from "@/components/MermaidDiagram";
+import { PostState } from "@/types";
 
 export const metadata = {
   title: "Building a Multi-Language Game Development Ecosystem",
@@ -8,8 +9,7 @@ export const metadata = {
   publishedAt: "2025-07-20",
   readTime: 8,
   tags: ["Game Development", "OCaml", "TypeScript", "Unity"],
-  featured: false,
-  published: false,
+  state: PostState.DRAFT,
 };
 
 <PostHeader metadata={metadata} />

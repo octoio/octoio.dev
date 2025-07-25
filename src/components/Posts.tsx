@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { PostSummary } from "@/lib/posts";
+import type { PostSummary } from "@/types";
+import { PostState } from "@/types";
 import PostCard from "@/components/PostCard";
 
 interface PostsProps {
@@ -9,7 +10,7 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
-  const featuredPosts = posts.filter((p) => p.featured);
+  const featuredPosts = posts.filter((p) => p.state === PostState.FEATURED);
   const displayPosts =
     featuredPosts.length > 0 ? featuredPosts : posts.slice(0, 2);
 

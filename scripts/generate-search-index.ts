@@ -4,6 +4,12 @@ import fs from "fs";
 import path from "path";
 import { projects } from "../src/data/projects";
 import { socialLinks } from "../src/data/social";
+import type { SearchItem, YouTubeVideo } from "../src/types";
+import { PostState } from "../src/types";
+import {
+  loadPostsFromFileSystem,
+  filterPublishedPosts,
+} from "../src/lib/utils/post-utils";
 
 // Load environment variables
 import dotenv from "dotenv";
@@ -15,124 +21,6 @@ const __dirname = dirname(__filename);
 
 // Load .env.local from the project root
 dotenv.config({ path: path.join(__dirname, "..", ".env.local"), quiet: true });
-
-interface SearchItem {
-  type: "project" | "post" | "social" | "page" | "video";
-  title: string;
-  description: string;
-  url: string;
-  tags: string[];
-  featured: boolean;
-  data: any;
-}
-
-interface YouTubeVideo {
-  id: string;
-  title: string;
-  description: string;
-  publishedAt: string;
-  thumbnailUrl: string;
-  viewCount: string;
-  duration: string;
-  tags: string[];
-}
-
-interface PostFromFileSystem {
-  slug: string;
-  title: string;
-  excerpt: string;
-  publishedAt: string;
-  readTime: number;
-  tags: string[];
-  featured: boolean;
-  published: boolean;
-}
-
-function getPostsFromFileSystem(): PostFromFileSystem[] {
-  const postsDirectory = path.join(process.cwd(), "src/app/post");
-
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
-  }
-
-  const postDirs = fs
-    .readdirSync(postsDirectory, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
-
-  const posts = postDirs
-    .map((postDir): PostFromFileSystem | null => {
-      const slug = postDir;
-      const mdxPath = path.join(postsDirectory, postDir, "page.mdx");
-
-      if (!fs.existsSync(mdxPath)) {
-        return null;
-      }
-
-      try {
-        const fileContent = fs.readFileSync(mdxPath, "utf-8");
-
-        // Extract metadata from export statement
-        const metadataMatch = fileContent.match(
-          /export const metadata = \{([\s\S]*?)\}/
-        );
-        if (!metadataMatch) {
-          console.warn(`No metadata found in ${mdxPath}`);
-          return null;
-        }
-
-        // Parse the metadata manually (simplified approach)
-        const metadataString = metadataMatch[1];
-        const titleMatch = metadataString.match(/title:\s*"([^"]+)"/);
-        const excerptMatch = metadataString.match(/excerpt:\s*"([^"]+)"/);
-        const publishedAtMatch = metadataString.match(
-          /publishedAt:\s*"([^"]+)"/
-        );
-        const readTimeMatch = metadataString.match(/readTime:\s*(\d+)/);
-        const tagsMatch = metadataString.match(/tags:\s*\[(.*?)\]/);
-        const featuredMatch = metadataString.match(/featured:\s*(true|false)/);
-        const publishedMatch = metadataString.match(
-          /published:\s*(true|false)/
-        );
-
-        if (
-          !titleMatch ||
-          !excerptMatch ||
-          !publishedAtMatch ||
-          !readTimeMatch
-        ) {
-          console.warn(`Incomplete metadata in ${mdxPath}`);
-          return null;
-        }
-
-        const tags = tagsMatch
-          ? tagsMatch[1].split(",").map((tag) => tag.trim().replace(/"/g, ""))
-          : [];
-
-        return {
-          slug,
-          title: titleMatch[1],
-          excerpt: excerptMatch[1],
-          publishedAt: publishedAtMatch[1],
-          readTime: parseInt(readTimeMatch[1]),
-          tags,
-          featured: featuredMatch ? featuredMatch[1] === "true" : false,
-          published: publishedMatch ? publishedMatch[1] === "true" : true,
-        };
-      } catch (error) {
-        console.error(`Error reading ${mdxPath}:`, error);
-        return null;
-      }
-    })
-    .filter(
-      (post): post is PostFromFileSystem => post !== null && post.published
-    );
-
-  return posts.sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
-}
 
 async function fetchYouTubeVideos(): Promise<YouTubeVideo[]> {
   const API_KEY = process.env.YOUTUBE_API_KEY;
@@ -253,7 +141,8 @@ async function generateSearchIndex() {
     console.log("🔍 Generating search index...");
 
     // Get posts data
-    const posts = getPostsFromFileSystem();
+    const allPosts = loadPostsFromFileSystem();
+    const posts = filterPublishedPosts(allPosts);
 
     // Get YouTube videos
     const youtubeVideos = await fetchYouTubeVideos();
@@ -278,7 +167,7 @@ async function generateSearchIndex() {
         description: post.excerpt,
         url: `/post/${post.slug}/`,
         tags: post.tags,
-        featured: post.featured || false,
+        featured: post.state === PostState.FEATURED,
         data: post,
       })),
 

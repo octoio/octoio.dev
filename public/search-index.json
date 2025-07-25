@@ -183,8 +183,7 @@
       "publishedAt": "2025-07-25",
       "readTime": 5,
       "tags": [],
-      "featured": true,
-      "published": true
+      "state": "featured"
     }
   },
   {
