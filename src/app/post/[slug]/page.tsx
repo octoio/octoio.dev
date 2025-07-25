@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PostPageProps) {
       ...(post.thumbnail && {
         images: [
           {
-            url: post.thumbnail,
+            url: post.thumbnail.startsWith('http') ? post.thumbnail : `${baseUrl}${post.thumbnail}`,
             width: 1200,
             height: 630,
             alt: post.title,
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PostPageProps) {
       title: post.title,
       description: post.excerpt,
       ...(post.thumbnail && {
-        images: [post.thumbnail],
+        images: [post.thumbnail.startsWith('http') ? post.thumbnail : `${baseUrl}${post.thumbnail}`],
       }),
     },
   };
