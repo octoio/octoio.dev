@@ -72,11 +72,16 @@ export default function CodeHighlighter() {
                   element.textContent || "",
                   { language }
                 );
-                element.innerHTML = result.value;
-                element.dataset.highlighted = "yes";
+                // Use requestAnimationFrame to avoid hydration mismatch
+                requestAnimationFrame(() => {
+                  element.innerHTML = result.value;
+                  element.dataset.highlighted = "yes";
+                });
               } catch {
                 // If language not supported, just mark as highlighted to avoid retrying
-                element.dataset.highlighted = "yes";
+                requestAnimationFrame(() => {
+                  element.dataset.highlighted = "yes";
+                });
               }
             }
           }
@@ -86,8 +91,8 @@ export default function CodeHighlighter() {
       }
     };
 
-    // Run highlighting after a delay to ensure DOM is ready
-    const timeoutId = setTimeout(highlightCode, 100);
+    // Run highlighting after hydration is complete
+    const timeoutId = setTimeout(highlightCode, 300);
     return () => clearTimeout(timeoutId);
   }, [isClient]);
 
