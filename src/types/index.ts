@@ -8,6 +8,7 @@ export interface Project {
   liveUrl?: string;
   imageUrl?: string;
   featured: boolean;
+  publishedAt: string;
 }
 
 // Post-related types

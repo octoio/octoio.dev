@@ -14,25 +14,33 @@ const postsDirectory = path.join(process.cwd(), "src/app/post");
  * Parse post state from metadata string
  */
 function parsePostState(metadataString: string): PostState {
-  // Check for new state field first
-  const stateMatch = metadataString.match(
+  // Check for state field - both enum and string formats
+  const stateEnumMatch = metadataString.match(
+    /state:\s*PostState\.(DRAFT|PUBLISHED|FEATURED)/
+  );
+  if (stateEnumMatch) {
+    const enumValue = stateEnumMatch[1];
+    switch (enumValue) {
+      case "DRAFT":
+        return PostState.DRAFT;
+      case "PUBLISHED":
+        return PostState.PUBLISHED;
+      case "FEATURED":
+        return PostState.FEATURED;
+      default:
+        return PostState.PUBLISHED;
+    }
+  }
+
+  const stateStringMatch = metadataString.match(
     /state:\s*"(draft|published|featured)"/
   );
-  if (stateMatch) {
-    return stateMatch[1] as PostState;
+  if (stateStringMatch) {
+    return stateStringMatch[1] as PostState;
   }
 
-  // Fall back to legacy featured/published fields for backward compatibility
-  const featuredMatch = metadataString.match(/featured:\s*true/);
-  const publishedMatch = metadataString.match(/published:\s*false/);
-
-  if (featuredMatch) {
-    return PostState.FEATURED;
-  } else if (publishedMatch) {
-    return PostState.DRAFT;
-  } else {
-    return PostState.PUBLISHED;
-  }
+  // Default to draft if no state is found
+  return PostState.DRAFT;
 }
 
 /**
@@ -95,26 +103,13 @@ export async function loadPostMetadataFromImport(
   try {
     const { metadata } = await import(`@/app/post/${slug}/page.mdx`);
 
-    // Handle new state field or legacy featured/published fields
-    let state: PostState = PostState.PUBLISHED;
-    if (metadata.state) {
-      state = metadata.state as PostState;
-    } else {
-      // Legacy compatibility
-      if (metadata.featured) {
-        state = PostState.FEATURED;
-      } else if (metadata.published === false) {
-        state = PostState.DRAFT;
-      }
-    }
-
     return {
       title: metadata.title,
       excerpt: metadata.excerpt,
       publishedAt: metadata.publishedAt,
       readTime: metadata.readTime,
       tags: metadata.tags || [],
-      state,
+      state: metadata.state as PostState,
       thumbnail: metadata.thumbnail,
     };
   } catch (error) {
@@ -206,18 +201,6 @@ export function isPostPublished(state: PostState): boolean {
  */
 export function isPostFeatured(state: PostState): boolean {
   return state === PostState.FEATURED;
-}
-
-/**
- * Sort posts by published date (newest first)
- */
-export function sortPostsByDate<T extends { publishedAt: string }>(
-  posts: T[]
-): T[] {
-  return posts.sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
 }
 
 /**

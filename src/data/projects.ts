@@ -10,6 +10,7 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/fey-data",
     displayUrl: "View on GitHub",
     featured: true,
+    publishedAt: "2025-07-28",
   },
   {
     id: "2",
@@ -27,6 +28,7 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/fey-console",
     displayUrl: "View on GitHub",
     featured: true,
+    publishedAt: "2025-07-27",
   },
   {
     id: "3",
@@ -44,6 +46,7 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/voice-viewer",
     displayUrl: "View on GitHub",
     featured: false,
+    publishedAt: "2025-07-26",
   },
   {
     id: "4",
@@ -54,6 +57,7 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/whisper-transcriber",
     displayUrl: "View on GitHub",
     featured: false,
+    publishedAt: "2025-07-25",
   },
   {
     id: "5",
@@ -64,6 +68,7 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/fey-manim",
     displayUrl: "View on GitHub",
     featured: false,
+    publishedAt: "2025-07-24",
   },
   {
     id: "6",
@@ -74,5 +79,6 @@ export const projects: Project[] = [
     url: "https://github.com/octoio/octoio.dev",
     displayUrl: "View on GitHub",
     featured: true,
+    publishedAt: "2025-07-23",
   },
 ];

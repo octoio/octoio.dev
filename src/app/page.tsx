@@ -12,10 +12,12 @@ import type { Metadata } from "next";
 export function generateMetadata(): Metadata {
   return {
     title: "Octoio | Game Development & Creative Projects",
-    description: "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
+    description:
+      "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
     openGraph: {
       title: "Octoio | Game Development & Creative Projects",
-      description: "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
+      description:
+        "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
       type: "website",
       url: "/",
       siteName: "Octoio",
@@ -23,8 +25,9 @@ export function generateMetadata(): Metadata {
     },
     twitter: {
       card: "summary",
-      title: "Octoio | Game Development & Creative Projects", 
-      description: "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
+      title: "Octoio | Game Development & Creative Projects",
+      description:
+        "Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.",
       images: ["/favicon.ico"],
     },
   };

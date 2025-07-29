@@ -49,9 +49,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     types: {
-      "application/rss+xml": [
-        { url: "/rss.xml", title: "Octoio RSS Feed" }
-      ],
+      "application/rss+xml": [{ url: "/rss.xml", title: "Octoio RSS Feed" }],
     },
   },
 };

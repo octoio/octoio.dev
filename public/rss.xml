@@ -9,9 +9,9 @@
             <link>https://www.octoio.dev</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 29 Jul 2025 00:24:47 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Jul 2025 01:02:58 GMT</lastBuildDate>
         <atom:link href="https://www.octoio.dev/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 29 Jul 2025 00:24:47 GMT</pubDate>
+        <pubDate>Tue, 29 Jul 2025 01:02:58 GMT</pubDate>
         <copyright><![CDATA[2025 Octoio]]></copyright>
         <language><![CDATA[en]]></language>
         <managingEditor><![CDATA[octoiodev@gmail.com (Octoio)]]></managingEditor>
@@ -23,38 +23,6 @@
         <category><![CDATA[OCaml]]></category>
         <category><![CDATA[TypeScript]]></category>
         <category><![CDATA[Unity]]></category>
-        <item>
-            <title><![CDATA[Building This Website: My AI-Powered Development Experience]]></title>
-            <description><![CDATA[How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.]]></description>
-            <link>https://www.octoio.dev/post/building-with-ai-and-claude/</link>
-            <guid isPermaLink="false">https://www.octoio.dev/post/building-with-ai-and-claude/</guid>
-            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
-            <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
-            <enclosure url="https://www.octoio.dev/thumbnails/building-with-ai-and-claude.png" length="0" type="image/png"/>
-        </item>
-        <item>
-            <title><![CDATA[Building a Multi-Language Game Development Ecosystem]]></title>
-            <description><![CDATA[How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.]]></description>
-            <link>https://www.octoio.dev/post/multi-language-game-ecosystem/</link>
-            <guid isPermaLink="false">https://www.octoio.dev/post/multi-language-game-ecosystem/</guid>
-            <category><![CDATA[Game Development]]></category>
-            <category><![CDATA[OCaml]]></category>
-            <category><![CDATA[TypeScript]]></category>
-            <category><![CDATA[Unity]]></category>
-            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
-            <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[The Power of Type Safety in Game Data Pipelines]]></title>
-            <description><![CDATA[Exploring how strong typing across multiple languages prevents bugs and improves developer experience.]]></description>
-            <link>https://www.octoio.dev/post/type-safety-game-pipelines/</link>
-            <guid isPermaLink="false">https://www.octoio.dev/post/type-safety-game-pipelines/</guid>
-            <category><![CDATA[Type Safety]]></category>
-            <category><![CDATA[OCaml]]></category>
-            <category><![CDATA[Game Development]]></category>
-            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
-            <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[[PROJECT] Fey Data Pipeline]]></title>
             <description><![CDATA[OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.
@@ -70,7 +38,7 @@ Technologies: OCaml, ATD, Dune, JSON, C#]]></description>
             <category><![CDATA[Project]]></category>
             <category><![CDATA[Open Source]]></category>
             <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
-            <pubDate>Sun, 29 Jun 2025 00:24:47 GMT</pubDate>
+            <pubDate>Mon, 28 Jul 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[[PROJECT] Fey Console]]></title>
@@ -88,7 +56,16 @@ Technologies: React, TypeScript, Vite, Ant Design, Zustand, Vitest]]></descripti
             <category><![CDATA[Project]]></category>
             <category><![CDATA[Open Source]]></category>
             <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
-            <pubDate>Sat, 28 Jun 2025 00:24:47 GMT</pubDate>
+            <pubDate>Sun, 27 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[[POST] Building This Website: My AI-Powered Development Experience]]></title>
+            <description><![CDATA[How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.]]></description>
+            <link>https://www.octoio.dev/post/building-with-ai-and-claude/</link>
+            <guid isPermaLink="false">https://www.octoio.dev/post/building-with-ai-and-claude/</guid>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
+            <enclosure url="https://www.octoio.dev/thumbnails/building-with-ai-and-claude.png" length="0" type="image/png"/>
         </item>
         <item>
             <title><![CDATA[[PROJECT] octoio.dev]]></title>
@@ -105,7 +82,7 @@ Technologies: Next.js, TypeScript, Tailwind CSS, MDX, Fuse.js]]></description>
             <category><![CDATA[Project]]></category>
             <category><![CDATA[Open Source]]></category>
             <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
-            <pubDate>Fri, 27 Jun 2025 00:24:47 GMT</pubDate>
+            <pubDate>Wed, 23 Jul 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[[VIDEO] Fey (fæge) - Step Inside The Game Loop Logic - Devlog #2]]></title>
