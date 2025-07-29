@@ -2,7 +2,7 @@
 
 import fs from "fs";
 import path from "path";
-import RSS from "rss";
+import RSS, { ItemOptions } from "rss";
 import { projects } from "../src/data/projects";
 import {
   loadPostsFromFileSystem,
@@ -49,7 +49,7 @@ async function generateRSSFeed() {
     const allItems: Array<{
       date: Date;
       type: string;
-      item: any;
+      item: ItemOptions;
     }> = [];
 
     // Add posts
