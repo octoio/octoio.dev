@@ -101,26 +101,24 @@ async function generateRSSFeed() {
       });
     });
 
-    // Add featured projects using their actual publishedAt dates
-    projects
-      .filter((project) => project.featured)
-      .forEach((project) => {
-        const projectDate = new Date(project.publishedAt);
+    // Add all projects using their actual publishedAt dates
+    projects.forEach((project) => {
+      const projectDate = new Date(project.publishedAt);
 
-        allItems.push({
+      allItems.push({
+        date: projectDate,
+        type: "project",
+        item: {
+          title: `[PROJECT] ${project.title}`,
+          description: `${project.description}\n\nTechnologies: ${project.technologies.join(", ")}`,
+          url: project.url || `https://www.octoio.dev/projects#${project.id}`,
+          guid: `https://www.octoio.dev/projects#${project.id}`,
+          categories: [...project.technologies, "Project", "Open Source"],
+          author: "octoiodev@gmail.com (Octoio)",
           date: projectDate,
-          type: "project",
-          item: {
-            title: `[PROJECT] ${project.title}`,
-            description: `${project.description}\n\nTechnologies: ${project.technologies.join(", ")}`,
-            url: project.url || `https://www.octoio.dev/projects#${project.id}`,
-            guid: `https://www.octoio.dev/projects#${project.id}`,
-            categories: [...project.technologies, "Project", "Open Source"],
-            author: "octoiodev@gmail.com (Octoio)",
-            date: projectDate,
-          },
-        });
+        },
       });
+    });
 
     // Sort all items by date (newest first)
     allItems.sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -144,9 +142,7 @@ async function generateRSSFeed() {
     console.log(`✅ RSS feed generated with ${allItems.length} items`);
     console.log(`   📝 ${posts.length} posts`);
     console.log(`   📺 ${youtubeVideos.length} YouTube videos`);
-    console.log(
-      `   🚀 ${projects.filter((p) => p.featured).length} featured projects`
-    );
+    console.log(`   🚀 ${projects.length} projects`);
     console.log(`   💾 Saved to: ${outputPath}`);
 
     return rssXml;

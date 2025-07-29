@@ -9,9 +9,9 @@
             <link>https://www.octoio.dev</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 29 Jul 2025 01:02:58 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Jul 2025 01:10:06 GMT</lastBuildDate>
         <atom:link href="https://www.octoio.dev/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 29 Jul 2025 01:02:58 GMT</pubDate>
+        <pubDate>Tue, 29 Jul 2025 01:10:06 GMT</pubDate>
         <copyright><![CDATA[2025 Octoio]]></copyright>
         <language><![CDATA[en]]></language>
         <managingEditor><![CDATA[octoiodev@gmail.com (Octoio)]]></managingEditor>
@@ -59,6 +59,24 @@ Technologies: React, TypeScript, Vite, Ant Design, Zustand, Vitest]]></descripti
             <pubDate>Sun, 27 Jul 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[[PROJECT] Voice Viewer]]></title>
+            <description><![CDATA[Professional audio visualizer for faceless content creators and developers. Features live microphone mode with real-time parameter tuning, multiple visualizers (waveform, spectrum, circular), and professional themes perfect for devlogs and tutorials.
+
+Technologies: Python, OpenCV, LibROSA, MoviePy, PyAudio, NumPy]]></description>
+            <link>https://github.com/octoio/voice-viewer</link>
+            <guid isPermaLink="false">https://www.octoio.dev/projects#3</guid>
+            <category><![CDATA[Python]]></category>
+            <category><![CDATA[OpenCV]]></category>
+            <category><![CDATA[LibROSA]]></category>
+            <category><![CDATA[MoviePy]]></category>
+            <category><![CDATA[PyAudio]]></category>
+            <category><![CDATA[NumPy]]></category>
+            <category><![CDATA[Project]]></category>
+            <category><![CDATA[Open Source]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sat, 26 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[[POST] Building This Website: My AI-Powered Development Experience]]></title>
             <description><![CDATA[How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.]]></description>
             <link>https://www.octoio.dev/post/building-with-ai-and-claude/</link>
@@ -66,6 +84,36 @@ Technologies: React, TypeScript, Vite, Ant Design, Zustand, Vitest]]></descripti
             <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
             <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
             <enclosure url="https://www.octoio.dev/thumbnails/building-with-ai-and-claude.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[[PROJECT] Whisper Transcriber]]></title>
+            <description><![CDATA[Audio transcription tool leveraging OpenAI's Whisper model for accurate speech-to-text conversion.
+
+Technologies: Python, OpenAI Whisper, Audio Processing]]></description>
+            <link>https://github.com/octoio/whisper-transcriber</link>
+            <guid isPermaLink="false">https://www.octoio.dev/projects#4</guid>
+            <category><![CDATA[Python]]></category>
+            <category><![CDATA[OpenAI Whisper]]></category>
+            <category><![CDATA[Audio Processing]]></category>
+            <category><![CDATA[Project]]></category>
+            <category><![CDATA[Open Source]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[[PROJECT] Fey Manim Animations]]></title>
+            <description><![CDATA[Mathematical animation system for creating devlog content and educational materials.
+
+Technologies: Python, Manim, Animation]]></description>
+            <link>https://github.com/octoio/fey-manim</link>
+            <guid isPermaLink="false">https://www.octoio.dev/projects#5</guid>
+            <category><![CDATA[Python]]></category>
+            <category><![CDATA[Manim]]></category>
+            <category><![CDATA[Animation]]></category>
+            <category><![CDATA[Project]]></category>
+            <category><![CDATA[Open Source]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Thu, 24 Jul 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[[PROJECT] octoio.dev]]></title>
