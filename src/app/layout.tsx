@@ -47,6 +47,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Octoio",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        { url: "/rss.xml", title: "Octoio RSS Feed" }
+      ],
+    },
+  },
 };
 
 export const viewport: Viewport = {

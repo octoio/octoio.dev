@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import RssIndicator from "../RssIndicator";
 
 interface HeroContentProps {
   isVisible: boolean;
@@ -14,9 +15,12 @@ export default function HeroContent({ isVisible, children }: HeroContentProps) {
       }`}
     >
       <div className="mb-6">
-        <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent">
-          Octoio
-        </h1>
+        <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
+          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent">
+            Octoio
+          </h1>
+          <RssIndicator className="mt-2" />
+        </div>
         {children}
       </div>
 

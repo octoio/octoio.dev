@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Octoio - Game Development & Creative Projects]]></title>
+        <description><![CDATA[Octoio's portfolio - Game development, creative projects, and technical exploration. From OCaml data pipelines to Unity games.]]></description>
+        <link>https://www.octoio.dev</link>
+        <image>
+            <url>https://www.octoio.dev/favicon.ico</url>
+            <title>Octoio - Game Development &amp; Creative Projects</title>
+            <link>https://www.octoio.dev</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Tue, 29 Jul 2025 00:24:47 GMT</lastBuildDate>
+        <atom:link href="https://www.octoio.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Tue, 29 Jul 2025 00:24:47 GMT</pubDate>
+        <copyright><![CDATA[2025 Octoio]]></copyright>
+        <language><![CDATA[en]]></language>
+        <managingEditor><![CDATA[octoiodev@gmail.com (Octoio)]]></managingEditor>
+        <webMaster><![CDATA[octoiodev@gmail.com (Octoio)]]></webMaster>
+        <ttl>60</ttl>
+        <category><![CDATA[Game Development]]></category>
+        <category><![CDATA[Programming]]></category>
+        <category><![CDATA[Technology]]></category>
+        <category><![CDATA[OCaml]]></category>
+        <category><![CDATA[TypeScript]]></category>
+        <category><![CDATA[Unity]]></category>
+        <item>
+            <title><![CDATA[Building This Website: My AI-Powered Development Experience]]></title>
+            <description><![CDATA[How I built octoio.dev using Claude as my AI development partner, and why it feels like being a PM with the world's most efficient team.]]></description>
+            <link>https://www.octoio.dev/post/building-with-ai-and-claude/</link>
+            <guid isPermaLink="false">https://www.octoio.dev/post/building-with-ai-and-claude/</guid>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
+            <enclosure url="https://www.octoio.dev/thumbnails/building-with-ai-and-claude.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[Building a Multi-Language Game Development Ecosystem]]></title>
+            <description><![CDATA[How I built a comprehensive system combining OCaml, TypeScript, and Unity for game asset management.]]></description>
+            <link>https://www.octoio.dev/post/multi-language-game-ecosystem/</link>
+            <guid isPermaLink="false">https://www.octoio.dev/post/multi-language-game-ecosystem/</guid>
+            <category><![CDATA[Game Development]]></category>
+            <category><![CDATA[OCaml]]></category>
+            <category><![CDATA[TypeScript]]></category>
+            <category><![CDATA[Unity]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[The Power of Type Safety in Game Data Pipelines]]></title>
+            <description><![CDATA[Exploring how strong typing across multiple languages prevents bugs and improves developer experience.]]></description>
+            <link>https://www.octoio.dev/post/type-safety-game-pipelines/</link>
+            <guid isPermaLink="false">https://www.octoio.dev/post/type-safety-game-pipelines/</guid>
+            <category><![CDATA[Type Safety]]></category>
+            <category><![CDATA[OCaml]]></category>
+            <category><![CDATA[Game Development]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[[PROJECT] Fey Data Pipeline]]></title>
+            <description><![CDATA[OCaml-based data processing pipeline that validates JSON game data definitions, manages entity relationships, and generates type-safe C# code for Unity integration.
+
+Technologies: OCaml, ATD, Dune, JSON, C#]]></description>
+            <link>https://github.com/octoio/fey-data</link>
+            <guid isPermaLink="false">https://www.octoio.dev/projects#1</guid>
+            <category><![CDATA[OCaml]]></category>
+            <category><![CDATA[ATD]]></category>
+            <category><![CDATA[Dune]]></category>
+            <category><![CDATA[JSON]]></category>
+            <category><![CDATA[C#]]></category>
+            <category><![CDATA[Project]]></category>
+            <category><![CDATA[Open Source]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sun, 29 Jun 2025 00:24:47 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[[PROJECT] Fey Console]]></title>
+            <description><![CDATA[Modern web-based console for creating, editing, and managing game entities. Features entity-specific editors, multi-entity support, and comprehensive testing.
+
+Technologies: React, TypeScript, Vite, Ant Design, Zustand, Vitest]]></description>
+            <link>https://github.com/octoio/fey-console</link>
+            <guid isPermaLink="false">https://www.octoio.dev/projects#2</guid>
+            <category><![CDATA[React]]></category>
+            <category><![CDATA[TypeScript]]></category>
+            <category><![CDATA[Vite]]></category>
+            <category><![CDATA[Ant Design]]></category>
+            <category><![CDATA[Zustand]]></category>
+            <category><![CDATA[Vitest]]></category>
+            <category><![CDATA[Project]]></category>
+            <category><![CDATA[Open Source]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sat, 28 Jun 2025 00:24:47 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[[PROJECT] octoio.dev]]></title>
+            <description><![CDATA[This portfolio website built with Next.js 15 and TypeScript. Features an interactive terminal, fuzzy search, MDX blog system, and comprehensive project showcase. Built collaboratively with Claude.
+
+Technologies: Next.js, TypeScript, Tailwind CSS, MDX, Fuse.js]]></description>
+            <link>https://github.com/octoio/octoio.dev</link>
+            <guid isPermaLink="false">https://www.octoio.dev/projects#6</guid>
+            <category><![CDATA[Next.js]]></category>
+            <category><![CDATA[TypeScript]]></category>
+            <category><![CDATA[Tailwind CSS]]></category>
+            <category><![CDATA[MDX]]></category>
+            <category><![CDATA[Fuse.js]]></category>
+            <category><![CDATA[Project]]></category>
+            <category><![CDATA[Open Source]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Fri, 27 Jun 2025 00:24:47 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[[VIDEO] Fey (fæge) - Step Inside The Game Loop Logic - Devlog #2]]></title>
+            <description><![CDATA[I was able to cook something that I am very proud of for this third update ⛺️
+
+The game is going in the right direction, and I can't wait to show more! Stay tuned for an upcoming full gameplay session with my friends!
+
+Links
+---------------------------------
+Fey's Official Discord: https://discord.gg/3FxWdFvKYU
+TikTok Account: https://www.tiktok.com/@octoio_dev
+Reddit Account: https://www.reddit.c...]]></description>
+            <link>https://www.youtube.com/watch?v=f12FesaUYYk</link>
+            <guid isPermaLink="false">https://www.youtube.com/watch?v=f12FesaUYYk</guid>
+            <category><![CDATA[roguelike]]></category>
+            <category><![CDATA[unity]]></category>
+            <category><![CDATA[gamedev]]></category>
+            <category><![CDATA[indiegame]]></category>
+            <category><![CDATA[rpg]]></category>
+            <category><![CDATA[devlog]]></category>
+            <category><![CDATA[YouTube]]></category>
+            <category><![CDATA[Video]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sun, 28 Jul 2024 23:30:07 GMT</pubDate>
+            <enclosure url="https://i.ytimg.com/vi/f12FesaUYYk/maxresdefault.jpg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[[VIDEO] Fey (fæge) - UI Update - Devlog #1]]></title>
+            <description><![CDATA[Here's the second devlog about the game. I've been really busy with life recently and this took longer to put together than I expected, but I hope you enjoy.
+
+Links
+---------------------------------
+Fey's Official Discord: https://discord.gg/3FxWdFvKYU
+TikTok Account: https://www.tiktok.com/@octoio_dev
+Reddit Account: https://www.reddit.com/r/octoio
+
+Music
+---------------------------------
+Medieva...]]></description>
+            <link>https://www.youtube.com/watch?v=vXZiANpTfIo</link>
+            <guid isPermaLink="false">https://www.youtube.com/watch?v=vXZiANpTfIo</guid>
+            <category><![CDATA[roguelike]]></category>
+            <category><![CDATA[unity]]></category>
+            <category><![CDATA[gamedev]]></category>
+            <category><![CDATA[indiegame]]></category>
+            <category><![CDATA[rpg]]></category>
+            <category><![CDATA[devlog]]></category>
+            <category><![CDATA[YouTube]]></category>
+            <category><![CDATA[Video]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sun, 09 Jun 2024 15:30:06 GMT</pubDate>
+            <enclosure url="https://i.ytimg.com/vi/vXZiANpTfIo/maxresdefault.jpg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[[VIDEO] Fey (fæge) - My Online Coop Dungeon Crawler RPG Roguelite]]></title>
+            <description><![CDATA[Go check the full devlog on my channel!
+
+https://discord.gg/3FxWdFvKYU
+
+Music by https://medievallofi.bandcamp.com
+
+Don't forget to like, subscribe, and join the Fey community! 🎮]]></description>
+            <link>https://www.youtube.com/watch?v=MAxjgFCfEGs</link>
+            <guid isPermaLink="false">https://www.youtube.com/watch?v=MAxjgFCfEGs</guid>
+            <category><![CDATA[roguelike]]></category>
+            <category><![CDATA[unity]]></category>
+            <category><![CDATA[gamedev]]></category>
+            <category><![CDATA[indiegame]]></category>
+            <category><![CDATA[rpg]]></category>
+            <category><![CDATA[devlog]]></category>
+            <category><![CDATA[YouTube]]></category>
+            <category><![CDATA[Video]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sun, 07 Jan 2024 19:25:53 GMT</pubDate>
+            <enclosure url="https://i.ytimg.com/vi/MAxjgFCfEGs/maxresdefault.jpg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[[VIDEO] Fey (fæge) - My Online Coop Dungeon Crawler RPG Roguelite - Devlog #0]]></title>
+            <description><![CDATA[🚀 I'm leaping into the unknown! Welcome to my first devlog for Fey (fæge), an online coop dungeon crawler RPG roguelite, from its ideation to its creation.
+
+The devlogs for the game will be bite-sized to cover the different systems.
+
+Links
+---------------------------------
+Fey's Official Discord: https://discord.gg/3FxWdFvKYU
+TikTok Account: https://www.tiktok.com/@octoio_dev
+Reddit Account: http...]]></description>
+            <link>https://www.youtube.com/watch?v=qpSnns2_SBg</link>
+            <guid isPermaLink="false">https://www.youtube.com/watch?v=qpSnns2_SBg</guid>
+            <category><![CDATA[roguelike]]></category>
+            <category><![CDATA[unity]]></category>
+            <category><![CDATA[gamedev]]></category>
+            <category><![CDATA[indiegame]]></category>
+            <category><![CDATA[rpg]]></category>
+            <category><![CDATA[devlog]]></category>
+            <category><![CDATA[YouTube]]></category>
+            <category><![CDATA[Video]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Wed, 27 Dec 2023 18:41:24 GMT</pubDate>
+            <enclosure url="https://i.ytimg.com/vi/qpSnns2_SBg/maxresdefault.jpg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[[VIDEO] octoio: forewords]]></title>
+            <description><![CDATA[In this episode I introduce myself and talk about the reasons why I am starting a devlog.
+Follow: https://linktr.ee/octoio]]></description>
+            <link>https://www.youtube.com/watch?v=3eu4caesh4E</link>
+            <guid isPermaLink="false">https://www.youtube.com/watch?v=3eu4caesh4E</guid>
+            <category><![CDATA[Devlog]]></category>
+            <category><![CDATA[fey]]></category>
+            <category><![CDATA[game dev]]></category>
+            <category><![CDATA[indie game]]></category>
+            <category><![CDATA[octoio]]></category>
+            <category><![CDATA[unity]]></category>
+            <category><![CDATA[YouTube]]></category>
+            <category><![CDATA[Video]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[octoiodev@gmail.com (Octoio)]]></dc:creator>
+            <pubDate>Sat, 08 Apr 2023 00:50:58 GMT</pubDate>
+            <enclosure url="https://i.ytimg.com/vi/3eu4caesh4E/maxresdefault.jpg" length="0" type="image/jpeg"/>
+        </item>
+    </channel>
+</rss>
